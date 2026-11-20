@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Raah-e-Ishq-o-Hidayat (راہِ عشق و ہدایت) — Where Every Heart Finds Guidance. Premium Islamic learning and reflection platform. Read the Holy Quran, discover authentic Azkar and Duas, explore Quranic topics, and track your spiritual journey." />
+  <meta name="keywords" content="Quran, Islamic, Azkar, Duas, Islam, Raah-e-Ishq-o-Hidayat, Dhikr, Urdu Quran, Tafseer, Muslim" />
+  <meta property="og:title" content="Raah-e-Ishq-o-Hidayat (راہِ عشق و ہدایت) — Where Every Heart Finds Guidance" />
+  <meta property="og:description" content="Where Every Heart Finds Guidance. A premium, modern, and elegant Islamic learning platform." />
+  <title>Raah-e-Ishq-o-Hidayat (راہِ عشق و ہدایت) — Where Every Heart Finds Guidance</title>
+
+  <!-- Progressive Web App (PWA) Meta & Icons -->
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#2D7A4F" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Raah-e-Ishq-o-Hidayat" />
+  <link rel="apple-touch-icon" href="assets/icons/icon-192.png" />
+
+  <!-- Google Fonts: Amiri for Arabic, Noto Nastaliq Urdu for Urdu -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Nastaliq+Urdu:wght@400;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body class="page-home">
+
+  <!-- ============================================================
+       1. HEADER (Injected dynamically by js/main.js)
+       Includes Logo (Noor نور), Nav links, Search icon,
+       Theme toggle, Login/Signup, and Responsive mobile drawer.
+  ============================================================ -->
+  <div id="header-placeholder"></div>
+
+  <main id="main-content">
+
+    <!-- ============================================================
+         2. HERO SECTION
+         Main heading: "Bring Your Heart Closer to the Quran"
+         Supporting text: "Where Every Heart Finds Guidance"
+         Buttons: Explore Quran and Start Your Journey
+    ============================================================ -->
+    <section class="hero" aria-label="Welcome to Raah-e-Ishq-o-Hidayat">
+      <!-- Islamic Geometric SVG Pattern Overlay -->
+      <div class="hero-pattern" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" style="position:absolute;inset:0;width:100%;height:100%;opacity:0.05;">
+          <defs>
+            <pattern id="hero-geom-pattern" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse">
+              <polygon points="40,5 47,25 67,25 52,38 58,58 40,46 22,58 28,38 13,25 33,25" fill="none" stroke="#C9A84C" stroke-width="1"/>
+              <polygon points="40,15 50,22 57,32 54,44 44,50 36,50 26,44 23,32 30,22" fill="none" stroke="#C9A84C" stroke-width="0.5"/>
+              <polygon points="0,0 8,0 8,8 0,8" fill="none" stroke="#C9A84C" stroke-width="0.5" transform="rotate(45 4 4)"/>
+              <polygon points="72,0 80,0 80,8 72,8" fill="none" stroke="#C9A84C" stroke-width="0.5" transform="rotate(45 76 4)"/>
+              <polygon points="0,72 8,72 8,80 0,80" fill="none" stroke="#C9A84C" stroke-width="0.5" transform="rotate(45 4 76)"/>
+              <polygon points="72,72 80,72 80,80 72,80" fill="none" stroke="#C9A84C" stroke-width="0.5" transform="rotate(45 76 76)"/>
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#hero-geom-pattern)" />
+        </svg>
+      </div>
+
+      <div class="hero-content container">
+        <!-- Bismillah Calligraphy -->
+        <p class="hero-bismillah animate-fade-up" lang="ar" dir="rtl" aria-label="Bismillah ir-Rahman ir-Raheem" style="animation-delay: 0.1s;">
+          بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
+        </p>
+
+        <!-- Gold Ornamental Divider -->
+        <div class="hero-divider animate-fade-up" aria-hidden="true" style="animation-delay: 0.2s;"></div>
+
+        <!-- Main Heading -->
+        <h1 class="hero-title animate-fade-up" style="animation-delay: 0.2s;">
+          Bring Your Heart Closer to the Quran
+        </h1>
+
+        <!-- Supporting Text -->
+        <p class="hero-tagline animate-fade-up" style="animation-delay: 0.3s;">
+          Read. Understand. Reflect. Remember.
+        </p>
+
+        <p class="hero-subtitle animate-fade-up" style="animation-delay: 0.4s;">
+          An elegant sanctuary for Quranic reflection, daily supplications, authentic remembrance, and personal spiritual growth.
+        </p>
+
+        <!-- Hero Actions -->
+        <div class="hero-actions animate-fade-up" style="animation-delay: 0.5s;">
+          <a href="quran.html" class="btn btn-gold btn-lg" aria-label="Explore Quran">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+            </svg>
+            Explore Quran
+          </a>
+          <a href="journey.html" class="btn btn-ghost-light btn-lg" aria-label="Start Your Journey">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/>
+              <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>
+            </svg>
+            Start Your Journey
+          </a>
+          <button type="button" class="btn btn-ghost-light btn-lg" id="btn-pwa-install-hero" aria-label="Install Raah-e-Ishq-o-Hidayat App">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            <span>Install App</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <div class="hero-scroll" aria-hidden="true">
+        <span class="hero-scroll-label">Scroll</span>
+        <div class="hero-scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         3. AYAH OF THE DAY
+         Arabic Verse, Urdu Translation, Surah & Ayah reference,
+         Play Audio button, Save/Bookmark button, Share button.
+    ============================================================ -->
+    <section class="daily-verse" id="ayah-of-the-day" aria-label="Ayah of the Day">
+      <!-- Geometric Ornament Top -->
+      <div class="verse-ornament verse-ornament-top" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 20" width="200" height="20">
+          <path d="M100,2 L105,10 L100,18 L95,10 Z" fill="#C9A84C" opacity="0.6"/>
+          <line x1="0" y1="10" x2="90" y2="10" stroke="#C9A84C" stroke-width="1" opacity="0.3"/>
+          <line x1="110" y1="10" x2="200" y2="10" stroke="#C9A84C" stroke-width="1" opacity="0.3"/>
+        </svg>
+      </div>
+
+      <div class="container">
+        <div class="verse-frame">
+          <!-- Label -->
+          <div class="verse-label">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+            </svg>
+            <span>Ayah of the Day · آية اليوم</span>
+          </div>
+
+          <!-- Authentic Quranic Text (Surah Ar-Ra'd 13:28) -->
+          <blockquote class="verse-arabic" lang="ar" dir="rtl" aria-label="Surah Ar-Rad verse 28 in Arabic">
+            الَّذِينَ آمَنُوا وَتَطْمَئِنُّ قُلُوبُهُم بِذِكْرِ اللَّهِ ۗ أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ
+          </blockquote>
+
+          <!-- Verified Urdu Translation -->
+          <p class="verse-urdu" lang="ur" dir="rtl" aria-label="Urdu Translation of Ayah">
+            "جو لوگ ایمان لائے اور ان کے دل اللہ کے ذکر سے مطمئن ہوتے ہیں، یاد رکھو کہ اللہ کے ذکر ہی سے دلوں کو اطمینان حاصل ہوتا ہے۔"
+          </p>
+
+          <!-- English Translation -->
+          <p class="verse-translation">
+            "Those who have believed and whose hearts are assured by the remembrance of Allah. Unquestionably, by the remembrance of Allah hearts are assured."
+          </p>
+
+          <!-- Reference -->
+          <cite class="verse-reference">
+            — Surah Ar-Ra'd (13:28) · سورة الرعد
+          </cite>
+
+          <!-- Actions: Play Audio, Save/Bookmark, Share, Read Full Surah -->
+          <div class="verse-actions-bar">
+            <!-- Play Audio Button -->
+            <button class="btn-audio" id="play-ayah-audio-btn" aria-label="Play recitation of this Ayah">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="5 3 19 12 5 21 5 3"/>
+              </svg>
+              <span>Listen Recitation</span>
+            </button>
+
+            <!-- Save / Bookmark Button -->
+            <button
+              class="btn-bookmark"
+              id="bookmark-ayah-btn"
+              data-bookmark-id="13-28"
+              data-surah="Surah Ar-Ra'd"
+              data-ayah="28"
+              data-arabic="الَّذِينَ آمَنُوا وَتَطْمَئِنُّ قُلُوبُهُم بِذِكْرِ اللَّهِ ۗ أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ"
+              data-translation="Those who have believed and whose hearts are assured by the remembrance of Allah."
+              data-ref="Surah Ar-Ra'd (13:28)"
+              aria-label="Bookmark this Ayah"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+              </svg>
+              <span class="bookmark-label">Bookmark</span>
+            </button>
+
+            <!-- Share Button -->
+            <button class="btn btn-outline-primary" id="share-ayah-btn" aria-label="Share this Ayah">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+              </svg>
+              <span>Share</span>
+            </button>
+
+            <!-- Read Full Surah Link -->
+            <a href="quran.html?surah=13" class="btn btn-ghost-primary" aria-label="Read Surah Ar-Rad">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+              </svg>
+              <span>Read Surah</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Geometric Ornament Bottom -->
+      <div class="verse-ornament verse-ornament-bottom" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 20" width="200" height="20">
+          <path d="M100,2 L105,10 L100,18 L95,10 Z" fill="#C9A84C" opacity="0.6"/>
+          <line x1="0" y1="10" x2="90" y2="10" stroke="#C9A84C" stroke-width="1" opacity="0.3"/>
+          <line x1="110" y1="10" x2="200" y2="10" stroke="#C9A84C" stroke-width="1" opacity="0.3"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         4. CONTINUE READING
+         Last-read Surah, Last-read Ayah, Continue Reading button,
+         Reading progress bar.
+    ============================================================ -->
+    <section class="continue-reading-section" aria-label="Continue Quran Reading">
+      <div class="container">
+        <div class="continue-card">
+          <div class="continue-grid">
+            <div class="continue-content">
+              <div class="continue-header-tag">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 8v4l3 3"/><circle cx="12" cy="12" r="9"/>
+                </svg>
+                <span>Continue Reading · متابعة القراءة</span>
+              </div>
+              <h2 class="continue-surah-title" id="continue-surah-name">
+                Surah Al-Kahf (سورة الكهف)
+              </h2>
+              <p class="continue-meta-text" id="continue-ayah-num">
+                Ayah 19 · Juz 15 · Makki
+              </p>
+
+              <!-- Progress Bar -->
+              <div class="continue-progress-wrap">
+                <div class="continue-progress-info">
+                  <span>Current Juz Progress</span>
+                  <span id="continue-percent">68%</span>
+                </div>
+                <div class="progress-track" role="progressbar" aria-valuenow="68" aria-valuemin="0" aria-valuemax="100">
+                  <div class="progress-fill" id="continue-progress-bar" style="width: 68%;"></div>
+                </div>
+              </div>
+
+              <!-- Quick Surahs Shortcuts -->
+              <div class="quick-surahs-label">Quick Jump:</div>
+              <div class="quick-surahs-list">
+                <a href="quran.html?surah=1" class="quick-surah-pill">Al-Fatihah (1)</a>
+                <a href="quran.html?surah=18" class="quick-surah-pill">Al-Kahf (18)</a>
+                <a href="quran.html?surah=36" class="quick-surah-pill">Ya-Sin (36)</a>
+                <a href="quran.html?surah=55" class="quick-surah-pill">Ar-Rahman (55)</a>
+                <a href="quran.html?surah=67" class="quick-surah-pill">Al-Mulk (67)</a>
+              </div>
+            </div>
+
+            <!-- Action Button -->
+            <div class="continue-actions">
+              <a href="quran.html?surah=18&ayah=19" class="btn btn-primary btn-lg" id="continue-reading-btn" aria-label="Resume reading from last verse">
+                <span>Continue Reading</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         5. DAILY AZKAR
+         Morning Azkar, Evening Azkar, After Prayer, Before Sleep.
+    ============================================================ -->
+    <section class="azkar-section" id="azkar-section" aria-label="Daily Remembrance and Azkar">
+      <div class="container">
+        <header class="section-header">
+          <div class="section-label">Spiritual Habits</div>
+          <h2 class="section-title">
+            Daily Azkar <span class="text-primary">الأذكار اليومية</span>
+          </h2>
+          <p class="section-subtitle">
+            "Keep your tongue moist with the remembrance of Allah throughout the day and night."
+          </p>
+        </header>
+
+        <div class="azkar-grid">
+          <!-- Card 1: Morning Azkar -->
+          <article class="azkar-card">
+            <div>
+              <div class="azkar-card-top">
+                <div class="azkar-card-icon">
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                  </svg>
+                </div>
+                <span class="azkar-timing-badge">After Fajr</span>
+              </div>
+              <div class="azkar-arabic-name" lang="ar" dir="rtl">أذكار الصباح</div>
+              <h3 class="azkar-card-title">Morning Azkar</h3>
+              <p class="azkar-card-desc">
+                Begin your morning with divine refuge, radiant gratitude, and protection for the day ahead.
+              </p>
+            </div>
+            <div class="azkar-card-meta">
+              <span class="azkar-count">24 Supplications · 15 mins</span>
+              <a href="azkar.html?category=morning" class="btn btn-ghost btn-sm">Start</a>
+            </div>
+          </article>
+
+          <!-- Card 2: Evening Azkar -->
+          <article class="azkar-card">
+            <div>
+              <div class="azkar-card-top">
+                <div class="azkar-card-icon">
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                  </svg>
+                </div>
+                <span class="azkar-timing-badge">After Asr / Maghrib</span>
+              </div>
+              <div class="azkar-arabic-name" lang="ar" dir="rtl">أذكار المساء</div>
+              <h3 class="azkar-card-title">Evening Azkar</h3>
+              <p class="azkar-card-desc">
+                Seek safety and calmness as darkness descends, thanking Allah for the blessings of your day.
+              </p>
+            </div>
+            <div class="azkar-card-meta">
+              <span class="azkar-count">22 Supplications · 15 mins</span>
+              <a href="azkar.html?category=evening" class="btn btn-ghost btn-sm">Start</a>
+            </div>
+          </article>
+
+          <!-- Card 3: After Prayer -->
+          <article class="azkar-card">
+            <div>
+              <div class="azkar-card-top">
+                <div class="azkar-card-icon">
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                  </svg>
+                </div>
+                <span class="azkar-timing-badge">Post-Salah</span>
+              </div>
+              <div class="azkar-arabic-name" lang="ar" dir="rtl">أذكار بعد الصلاة</div>
+              <h3 class="azkar-card-title">After Prayer</h3>
+              <p class="azkar-card-desc">
+                Prescribed Sunnah tasbeeh, Ayat al-Kursi, and istighfar following obligatory prayers.
+              </p>
+            </div>
+            <div class="azkar-card-meta">
+              <span class="azkar-count">12 Supplications · 5 mins</span>
+              <a href="azkar.html?category=prayer" class="btn btn-ghost btn-sm">Start</a>
+            </div>
+          </article>
+
+          <!-- Card 4: Before Sleep -->
+          <article class="azkar-card">
+            <div>
+              <div class="azkar-card-top">
+                <div class="azkar-card-icon">
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+                  </svg>
+                </div>
+                <span class="azkar-timing-badge">Bedtime</span>
+              </div>
+              <div class="azkar-arabic-name" lang="ar" dir="rtl">أذكار النوم</div>
+              <h3 class="azkar-card-title">Before Sleep</h3>
+              <p class="azkar-card-desc">
+                Surah Al-Mulk, the Mu'awwidhatayn, and sunnah bedtime prayers for tranquil rest.
+              </p>
+            </div>
+            <div class="azkar-card-meta">
+              <span class="azkar-count">16 Supplications · 10 mins</span>
+              <a href="azkar.html?category=sleep" class="btn btn-ghost btn-sm">Start</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         6. DAILY DUAS
+         Featured Dua with Arabic, Urdu, English, and Read More button.
+    ============================================================ -->
+    <section class="duas-section" id="duas-section" aria-label="Daily Supplications and Duas">
+      <div class="container">
+        <header class="section-header">
+          <div class="section-label">Authentic Supplications</div>
+          <h2 class="section-title">
+            Daily Duas <span class="text-primary">الأدعية المأثورة</span>
+          </h2>
+          <p class="section-subtitle">
+            "And your Lord says: Call upon Me; I will respond to you." — Surah Ghafir (40:60)
+          </p>
+        </header>
+
+        <div class="featured-dua-box">
+          <div class="dua-badge">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+            </svg>
+            <span>Featured Dua · دعاء جامع</span>
+          </div>
+
+          <!-- Arabic Dua Text (Surah Al-Baqarah 2:201) -->
+          <blockquote class="dua-arabic" lang="ar" dir="rtl">
+            رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ
+          </blockquote>
+
+          <!-- Urdu Translation -->
+          <p class="dua-urdu" lang="ur" dir="rtl">
+            "اے ہمارے رب! ہمیں دنیا میں بھی بھلائی عطا فرما اور آخرت میں بھی بھلائی اور ہمیں آگ کے عذاب سے بچا۔"
+          </p>
+
+          <!-- English Translation -->
+          <p class="dua-english">
+            "Our Lord, give us in this world that which is good and in the Hereafter that which is good and protect us from the punishment of the Fire."
+          </p>
+
+          <div class="dua-reference">
+            — Surah Al-Baqarah (2:201)
+          </div>
+
+          <div class="verse-actions-bar">
+            <a href="duas.html" class="btn btn-gold btn-lg" aria-label="Read more authentic duas">
+              <span>Read More Duas</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         7. EXPLORE QURAN TOPICS
+         Sabr, Tawakkul, Shukar, Forgiveness, Hope, Allah's Mercy.
+    ============================================================ -->
+    <section class="topics-section" id="topics-section" aria-label="Explore Quranic Themes and Topics">
+      <div class="container">
+        <header class="section-header">
+          <div class="section-label">Curated Studies</div>
+          <h2 class="section-title">
+            Explore Quran Topics <span class="text-primary">مواضيع القرآن</span>
+          </h2>
+          <p class="section-subtitle">
+            Discover guidance on core spiritual themes through grouped Quranic verses and insights.
+          </p>
+        </header>
+
+        <div class="topics-grid">
+          <!-- 1. Sabr -->
+          <a href="topics.html?topic=sabr" class="topic-card">
+            <div>
+              <div class="topic-card-header">
+                <h3 class="topic-title">Sabr (Patience)</h3>
+                <span class="topic-arabic" lang="ar" dir="rtl">الصبر</span>
+              </div>
+              <p class="topic-desc">
+                Perseverance through hardships, restraining the soul from disobedience, and steadfast worship.
+              </p>
+              <div class="topic-verse-highlight">
+                "Indeed, Allah is with the patient." — (2:153)
+              </div>
+            </div>
+            <span class="topic-card-cta">
+              Explore Theme
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            </span>
+          </a>
+
+          <!-- 2. Tawakkul -->
+          <a href="topics.html?topic=tawakkul" class="topic-card">
+            <div>
+              <div class="topic-card-header">
+                <h3 class="topic-title">Tawakkul (Trust)</h3>
+                <span class="topic-arabic" lang="ar" dir="rtl">التوكل</span>
+              </div>
+              <p class="topic-desc">
+                Tying your camel while placing complete, unwavering reliance upon Allah's wisdom.
+              </p>
+              <div class="topic-verse-highlight">
+                "And whoever relies upon Allah - then He is sufficient for him." — (65:3)
+              </div>
+            </div>
+            <span class="topic-card-cta">
+              Explore Theme
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            </span>
+          </a>
+
+          <!-- 3. Shukar -->
+          <a href="topics.html?topic=shukar" class="topic-card">
+            <div>
+              <div class="topic-card-header">
+                <h3 class="topic-title">Shukar (Gratitude)</h3>
+                <span class="topic-arabic" lang="ar" dir="rtl">الشكر</span>
+              </div>
+              <p class="topic-desc">
+                Recognizing internal and external gifts, responding with praise, humility, and obedience.
+              </p>
+              <div class="topic-verse-highlight">
+                "If you are grateful, I will surely increase you." — (14:7)
+              </div>
+            </div>
+            <span class="topic-card-cta">
+              Explore Theme
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            </span>
+          </a>
+
+          <!-- 4. Forgiveness -->
+          <a href="topics.html?topic=forgiveness" class="topic-card">
+            <div>
+              <div class="topic-card-header">
+                <h3 class="topic-title">Forgiveness (Maghfirah)</h3>
+                <span class="topic-arabic" lang="ar" dir="rtl">المغفرة</span>
+              </div>
+              <p class="topic-desc">
+                Turning back to the Most Merciful with sincere repentance, wiping sins clean.
+              </p>
+              <div class="topic-verse-highlight">
+                "Indeed, Allah forgives all sins. Indeed, He is the Forgiving." — (39:53)
+              </div>
+            </div>
+            <span class="topic-card-cta">
+              Explore Theme
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            </span>
+          </a>
+
+          <!-- 5. Hope -->
+          <a href="topics.html?topic=hope" class="topic-card">
+            <div>
+              <div class="topic-card-header">
+                <h3 class="topic-title">Hope (Raja')</h3>
+                <span class="topic-arabic" lang="ar" dir="rtl">الرجاء</span>
+              </div>
+              <p class="topic-desc">
+                Finding solace in Allah's boundless grace, holding high aspirations for His Paradise.
+              </p>
+              <div class="topic-verse-highlight">
+                "Do not despair of the mercy of Allah." — (39:53)
+              </div>
+            </div>
+            <span class="topic-card-cta">
+              Explore Theme
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            </span>
+          </a>
+
+          <!-- 6. Allah's Mercy -->
+          <a href="topics.html?topic=mercy" class="topic-card">
+            <div>
+              <div class="topic-card-header">
+                <h3 class="topic-title">Allah's Mercy (Rahmah)</h3>
+                <span class="topic-arabic" lang="ar" dir="rtl">رحمة الله</span>
+              </div>
+              <p class="topic-desc">
+                The overarching compassion of Ar-Rahman that precedes His wrath and embraces all existence.
+              </p>
+              <div class="topic-verse-highlight">
+                "My mercy encompasses all things." — (7:156)
+              </div>
+            </div>
+            <span class="topic-card-cta">
+              Explore Theme
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         8. MY QURAN JOURNEY
+         Reading progress, Saved Ayat, Completed Azkar,
+         Personal reflections.
+    ============================================================ -->
+    <section class="journey-section" id="journey-section" aria-label="Personal Quran Journey and Habits">
+      <div class="container">
+        <header class="section-header">
+          <div class="section-label">Your Spiritual Companion</div>
+          <h2 class="section-title">
+            My Quran Journey <span class="text-primary">رحلتي القرآنية</span>
+          </h2>
+          <p class="section-subtitle">
+            Track your milestones, saved bookmarks, daily remembrance, and personal reflections.
+          </p>
+        </header>
+
+        <div class="journey-grid">
+          <!-- Metric 1: Reading Progress -->
+          <div class="journey-metric-card">
+            <div class="journey-metric-icon">📖</div>
+            <div class="journey-metric-value" id="journey-surahs-count">14 / 114</div>
+            <div class="journey-metric-label">Surahs Completed</div>
+            <div class="journey-metric-bar">
+              <div class="journey-metric-bar-fill" id="journey-reading-progress-bar" style="width: 12%;"></div>
+            </div>
+          </div>
+
+          <!-- Metric 2: Saved Ayat -->
+          <div class="journey-metric-card">
+            <div class="journey-metric-icon">🔖</div>
+            <div class="journey-metric-value saved-ayat-count">1</div>
+            <div class="journey-metric-label">Saved Ayat (Bookmarks)</div>
+            <a href="journey.html#saved" class="btn btn-ghost btn-sm" style="margin-top:0.5rem;">View Saved</a>
+          </div>
+
+          <!-- Metric 3: Completed Azkar -->
+          <div class="journey-metric-card">
+            <div class="journey-metric-icon">📿</div>
+            <div class="journey-metric-value">5 Days</div>
+            <div class="journey-metric-label">Completed Azkar Streak</div>
+            <span class="azkar-timing-badge">Daily Active</span>
+          </div>
+
+          <!-- Metric 4: Personal Reflections -->
+          <div class="journey-metric-card">
+            <div class="journey-metric-icon">✍️</div>
+            <div class="journey-metric-value">3 Notes</div>
+            <div class="journey-metric-label">Personal Reflections</div>
+            <a href="journal.html" class="btn btn-ghost btn-sm" style="margin-top:0.5rem;">Write Note</a>
+          </div>
+        </div>
+
+        <!-- Journey CTA Banner -->
+        <div class="journey-cta-banner">
+          <div class="journey-cta-text">
+            <h3>Nurture a Lifelong Connection with the Word of Allah</h3>
+            <p>
+              Guest progress is automatically preserved on this device. Sign in anytime to sync seamlessly across your devices.
+            </p>
+          </div>
+          <div class="journey-cta-action">
+            <a href="journey.html" class="btn btn-gold btn-lg" aria-label="Open My Journey page">
+              <span>View Full Journey</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       9. FOOTER (Injected dynamically by js/main.js)
+       About Noor, Quick links, Privacy, Contact, Copyright.
+  ============================================================ -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Shared main application logic -->
+  <script src="js/main.js"></script>
+
+  <!-- Homepage Interactive Interactions -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+        anchor.addEventListener('click', function (e) {
+          var targetId = this.getAttribute('href');
+          if (targetId && targetId !== '#') {
+            var target = document.querySelector(targetId);
+            if (target) {
+              e.preventDefault();
+              target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          }
+        });
+      });
+
+      // Share Ayah feature
+      var shareBtn = document.getElementById('share-ayah-btn');
+      if (shareBtn) {
+        shareBtn.addEventListener('click', function () {
+          var text = 'الَّذِينَ آمَنُوا وَتَطْمَئِنُّ قُلُوبُهُم بِذِكْرِ اللَّهِ ۗ أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ\n\n' +
+            '"جو لوگ ایمان لائے اور ان کے دل اللہ کے ذکر سے مطمئن ہوتے ہیں، یاد رکھو کہ اللہ کے ذکر ہی سے دلوں کو اطمینان حاصل ہوتا ہے۔"\n' +
+            '— Surah Ar-Ra\'d (13:28)\n\n' +
+            'Raah-e-Ishq-o-Hidayat (راہِ عشق و ہدایت) — Where Every Heart Finds Guidance';
+
+          if (navigator.share) {
+            navigator.share({
+              title: 'Ayah of the Day — Raah-e-Ishq-o-Hidayat (راہِ عشق و ہدایت)',
+              text: text,
+              url: window.location.href
+            }).catch(function () {});
+          } else if (navigator.clipboard) {
+            navigator.clipboard.writeText(text).then(function () {
+              if (window.NoorToast) {
+                window.NoorToast.show('Ayah copied to clipboard 📋', 'success');
+              }
+            });
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>

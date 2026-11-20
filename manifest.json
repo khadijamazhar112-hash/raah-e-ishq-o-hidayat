@@ -1,0 +1,65 @@
+{
+  "id": "/",
+  "name": "Raah-e-Ishq-o-Hidayat",
+  "short_name": "Raah-e-Ishq-o-Hidayat",
+  "description": "Where Every Heart Finds Guidance — Premium Quran and Islamic Learning Platform",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "theme_color": "#2D7A4F",
+  "background_color": "#FAFAF7",
+  "dir": "ltr",
+  "lang": "en",
+  "categories": ["education", "books", "lifestyle"],
+  "icons": [
+    {
+      "src": "assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icons/icon-512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Al-Quran",
+      "short_name": "Quran",
+      "description": "Read Holy Quran with verified Urdu translation and recitation",
+      "url": "quran.html",
+      "icons": [{ "src": "assets/icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Daily Azkar",
+      "short_name": "Azkar",
+      "description": "Morning, evening and post-prayer remembrance with counter",
+      "url": "azkar.html",
+      "icons": [{ "src": "assets/icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Daily Duas",
+      "short_name": "Duas",
+      "description": "Authentic Masnoon supplications with audio and share",
+      "url": "duas.html",
+      "icons": [{ "src": "assets/icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "My Journal",
+      "short_name": "Journal",
+      "description": "Personal Tadabbur and Quran reflection journal",
+      "url": "journal.html",
+      "icons": [{ "src": "assets/icons/icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}

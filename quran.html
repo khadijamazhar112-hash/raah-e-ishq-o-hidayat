@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Al-Quran Al-Kareem — Complete Quran reader with Arabic Uthmani text, verified Urdu translation by Maulana Fateh Muhammad Jalandhry, audio recitations, and verse bookmarks." />
+  <meta name="keywords" content="Quran, Al-Quran, Surah, Ayah, Urdu Quran, Uthmani, Recitation, Alafasy, Raah-e-Ishq-o-Hidayat" />
+  <title>Al-Quran (القرآن الكريم) — Raah-e-Ishq-o-Hidayat (راہِ عشق و ہدایت)</title>
+
+  <!-- Progressive Web App (PWA) Meta & Icons -->
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#2D7A4F" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Raah-e-Ishq-o-Hidayat" />
+  <link rel="apple-touch-icon" href="assets/icons/icon-192.png" />
+
+  <!-- Google Fonts: Amiri for Arabic, Noto Nastaliq Urdu for Urdu -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Nastaliq+Urdu:wght@400;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body class="page-quran">
+
+  <!-- ============================================================
+       HEADER (Shared component injected dynamically by js/main.js)
+  ============================================================ -->
+  <div id="header-placeholder"></div>
+
+  <main class="quran-main-wrap">
+
+    <!-- ============================================================
+         QURAN MODULE HERO & TABS
+    ============================================================ -->
+    <section class="quran-hero">
+      <div class="container">
+        <div class="quran-hero-content">
+          <div class="quran-hero-titles">
+            <h1 class="quran-arabic-heading" lang="ar" dir="rtl">القرآن الكريم</h1>
+            <p class="quran-hero-sub">The Holy Quran · كلام الله عز وجل</p>
+          </div>
+
+          <!-- View Mode & Bookmarks Buttons -->
+          <div class="quran-tabs-bar">
+            <button class="quran-tab-btn" id="tab-btn-index">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
+                <rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
+              </svg>
+              <span>114 Surahs Index</span>
+            </button>
+
+            <button class="quran-tab-btn active" id="tab-btn-reader">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+              </svg>
+              <span>Quran Reader</span>
+            </button>
+
+            <button class="quran-tab-btn btn-bookmarks-trigger" id="btn-open-bookmarks" title="Open Saved Ayat">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+              </svg>
+              <span>Saved Ayat</span>
+              <span class="saved-ayat-count badge-count">0</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         STICKY READER CONTROLS & NAVIGATION TOOLBAR
+    ============================================================ -->
+    <nav class="quran-toolbar" aria-label="Quran navigation and reading settings">
+      <div class="container toolbar-inner">
+        <!-- Surah Selector -->
+        <div class="toolbar-group">
+          <label for="reader-surah-select" class="toolbar-label">Surah:</label>
+          <select id="reader-surah-select" class="toolbar-select surah-dropdown"></select>
+        </div>
+
+        <!-- Juz Selector -->
+        <div class="toolbar-group hide-mobile">
+          <label for="reader-juz-select" class="toolbar-label">Juz:</label>
+          <select id="reader-juz-select" class="toolbar-select juz-dropdown"></select>
+        </div>
+
+        <!-- Typography Sizing Controls -->
+        <div class="toolbar-group font-controls">
+          <span class="toolbar-label">Arabic:</span>
+          <div class="font-btn-group">
+            <button class="btn-tool-sm" id="btn-arabic-size-minus" aria-label="Decrease Arabic font size">A−</button>
+            <span class="font-size-indicator" id="label-arabic-size">30px</span>
+            <button class="btn-tool-sm" id="btn-arabic-size-plus" aria-label="Increase Arabic font size">A+</button>
+          </div>
+        </div>
+
+        <div class="toolbar-group font-controls hide-mobile">
+          <span class="toolbar-label">Urdu:</span>
+          <div class="font-btn-group">
+            <button class="btn-tool-sm" id="btn-urdu-size-minus" aria-label="Decrease Urdu font size">U−</button>
+            <span class="font-size-indicator" id="label-urdu-size">18px</span>
+            <button class="btn-tool-sm" id="btn-urdu-size-plus" aria-label="Increase Urdu font size">U+</button>
+          </div>
+        </div>
+
+        <!-- Toggle Translation & Distraction Free -->
+        <div class="toolbar-actions">
+          <button class="toolbar-action-btn active" id="btn-toggle-translation" title="Toggle Urdu Translation" aria-label="Toggle Urdu translation visibility">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+            <span class="hide-mobile">Urdu Translation</span>
+          </button>
+
+          <button class="toolbar-action-btn" id="btn-distraction-free" title="Distraction-Free Reading Mode" aria-label="Toggle distraction free mode">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/>
+              <line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/>
+            </svg>
+            <span class="hide-mobile">Focus Mode</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ============================================================
+         VIEW 1: SURAH INDEX VIEW (All 114 Surahs Grid)
+    ============================================================ -->
+    <section class="surah-index-view" id="surah-index-section" style="display: none;">
+      <div class="container">
+        <!-- Search & Filter Controls -->
+        <div class="index-search-bar">
+          <div class="index-search-input-wrap">
+            <svg class="search-input-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+            <input type="text" id="surah-search-input" placeholder="Search 114 Surahs by name, Arabic, Urdu, or number (e.g. Al-Kahf, 18, الكهف)..." />
+          </div>
+        </div>
+
+        <!-- Juz Quick Jump Navigation -->
+        <div class="juz-quick-nav">
+          <span class="juz-quick-label">Jump to Juz:</span>
+          <div class="juz-pills-row">
+            <button class="juz-filter-pill" data-juz="1">Juz 1</button>
+            <button class="juz-filter-pill" data-juz="5">Juz 5</button>
+            <button class="juz-filter-pill" data-juz="10">Juz 10</button>
+            <button class="juz-filter-pill" data-juz="15">Juz 15</button>
+            <button class="juz-filter-pill" data-juz="20">Juz 20</button>
+            <button class="juz-filter-pill" data-juz="25">Juz 25</button>
+            <button class="juz-filter-pill" data-juz="30">Juz 30 (عم)</button>
+          </div>
+        </div>
+
+        <!-- 114 Surahs Grid -->
+        <div class="surah-cards-grid" id="surah-index-grid"></div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         VIEW 2: QURAN READER VIEW
+    ============================================================ -->
+    <section class="quran-reader-view" id="quran-reader-section">
+      <div class="container reader-container">
+
+        <!-- Surah Heading Banner -->
+        <header class="surah-header-banner">
+          <div class="surah-nav-btn-wrap">
+            <button class="btn btn-ghost btn-sm" id="btn-prev-surah" title="Previous Surah">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="15 18 9 12 15 6"/>
+              </svg>
+              <span>Previous Surah</span>
+            </button>
+          </div>
+
+          <div class="surah-title-center">
+            <h2 class="reader-surah-arabic" id="current-surah-arabic" lang="ar" dir="rtl">الفاتحة</h2>
+            <div class="reader-surah-english" id="current-surah-english">Surah Al-Fatihah (The Opening) · الفاتحہ</div>
+            <p class="reader-surah-meta" id="current-surah-meta">
+              Surah 1 of 114 · مكية (Makki) · 7 Ayahs · Juz 1
+            </p>
+          </div>
+
+          <div class="surah-nav-btn-wrap">
+            <button class="btn btn-ghost btn-sm" id="btn-next-surah" title="Next Surah">
+              <span>Next Surah</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9 18 15 12 9 6"/>
+              </svg>
+            </button>
+          </div>
+        </header>
+
+        <!-- Bismillah Calligraphy Banner -->
+        <div class="bismillah-banner-box" id="surah-bismillah-banner">
+          <div class="bismillah-calligraphy" lang="ar" dir="rtl">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+          <p class="bismillah-urdu" lang="ur" dir="rtl">شروع اللہ کا نام لے کر جو بڑا مہربان نہایت رحم والا ہے</p>
+        </div>
+
+        <!-- Verses Container -->
+        <div class="quran-verses-container" id="quran-verses-container">
+          <!-- Ayahs populated dynamically by js/quran.js -->
+        </div>
+
+        <!-- Bottom Navigation & Back to Top -->
+        <div class="reader-bottom-nav">
+          <a href="#main-content" class="btn btn-ghost btn-sm">↑ Back to Top</a>
+        </div>
+
+        <!-- Attribution and Content Source Badge -->
+        <div class="quran-attribution-badge">
+          <div class="attrib-title">📖 Content Attribution & Verified Sources</div>
+          <div class="attrib-details">
+            <span><strong>Arabic Quran Text:</strong> King Fahd Glorious Quran Printing Complex (Uthmani Hafs text via Tanzil Project & AlQuran.cloud API).</span>
+            <span><strong>Urdu Translation:</strong> Maulana Fateh Muhammad Jalandhry (Verified public domain translation).</span>
+            <span><strong>Recitation Audio:</strong> EveryAyah Project / Tanzil (Attributed public educational repository).</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       STICKY BOTTOM AUDIO RECITATION PLAYER BAR
+       Play/pause, next/prev, reciter select, repeat mode, progress.
+  ============================================================ -->
+  <aside class="quran-bottom-player" id="quran-audio-player" aria-label="Audio Recitation Player">
+    <div class="container player-inner">
+      <!-- Track Info -->
+      <div class="player-track-info">
+        <div class="player-icon-pulse">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M9 18V5l12-2v13"/>
+            <circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>
+          </svg>
+        </div>
+        <div class="player-text-wrap">
+          <div class="player-now-title" id="player-now-playing">Al-Fatihah · Ayah 1</div>
+          <div class="player-sub-meta hide-mobile">Listen &amp; Follow Synchronized</div>
+        </div>
+      </div>
+
+      <!-- Main Controls -->
+      <div class="player-controls-center">
+        <div class="player-buttons-row">
+          <button class="player-btn" id="player-prev-btn" title="Previous Ayah" aria-label="Previous Ayah">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="19 20 9 12 19 4 19 20"/><line x1="5" y1="19" x2="5" y2="5" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </button>
+
+          <button class="player-play-btn" id="player-play-btn" title="Play recitation" aria-label="Play">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="5 3 19 12 5 21 5 3"/>
+            </svg>
+          </button>
+
+          <button class="player-btn" id="player-next-btn" title="Next Ayah" aria-label="Next Ayah">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="5 4 15 12 5 20 5 4"/><line x1="19" y1="5" x2="19" y2="19" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </button>
+
+          <button class="player-repeat-btn" id="player-repeat-btn" title="Repeat Mode: Continuous (Autoplay Next)" aria-label="Repeat mode">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/>
+              <polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Progress Timeline -->
+        <div class="player-progress-container">
+          <span class="player-time" id="audio-time-current">0:00</span>
+          <div class="player-seek-track" id="audio-seek-track" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+            <div class="player-seek-fill" id="audio-progress-bar" style="width: 0%;"></div>
+          </div>
+          <span class="player-time" id="audio-time-duration">0:00</span>
+        </div>
+      </div>
+
+      <!-- Reciter & Volume Settings -->
+      <div class="player-settings-right">
+        <select id="player-reciter-select" class="player-reciter-dropdown" aria-label="Select Quran Reciter"></select>
+        <div class="volume-slider-wrap hide-mobile">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/>
+          </svg>
+          <input type="range" id="player-volume-slider" min="0" max="100" value="90" aria-label="Audio Volume" />
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ============================================================
+       FOOTER (Shared component injected dynamically by js/main.js)
+  ============================================================ -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Shared main script (Header, Footer, Theme, Bookmarks) -->
+  <script src="js/main.js"></script>
+
+  <!-- Quran Module Logic -->
+  <script src="js/quran.js"></script>
+</body>
+</html>

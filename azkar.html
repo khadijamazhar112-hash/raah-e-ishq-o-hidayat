@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Daily Azkar (الأذكار اليومية) — Authentic Islamic supplications for morning, evening, after prayer, and bedtime with interactive counter, Urdu translations, and Hadith references." />
+  <meta name="keywords" content="Azkar, Morning Azkar, Evening Azkar, Dhikr, Tasbeeh, Hisn al-Muslim, Raah-e-Ishq-o-Hidayat, Islam, Supplications" />
+  <title>Daily Azkar (الأذكار اليومية) — Raah-e-Ishq-o-Hidayat (راہِ عشق و ہدایت)</title>
+
+  <!-- Progressive Web App (PWA) Meta & Icons -->
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#2D7A4F" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Raah-e-Ishq-o-Hidayat" />
+  <link rel="apple-touch-icon" href="assets/icons/icon-192.png" />
+
+  <!-- Google Fonts: Amiri for Arabic, Noto Nastaliq Urdu for Urdu -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Nastaliq+Urdu:wght@400;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body class="page-azkar">
+
+  <!-- ============================================================
+       HEADER (Shared component injected dynamically by js/main.js)
+  ============================================================ -->
+  <div id="header-placeholder"></div>
+
+  <main id="main-content">
+
+    <!-- ============================================================
+         AZKAR HERO & DAILY PROGRESS SUMMARY
+    ============================================================ -->
+    <section class="azkar-hero">
+      <div class="container">
+        <div class="azkar-hero-content">
+          <h1 class="azkar-hero-title" lang="ar" dir="rtl">الأذكار اليومية</h1>
+          <p class="azkar-hero-subtitle">
+            Daily Remembrance · "Keep your tongue moist with the remembrance of Allah"
+          </p>
+
+          <!-- Daily Progress Card -->
+          <div class="azkar-progress-box">
+            <div class="progress-box-header">
+              <div class="progress-header-left">
+                <span class="progress-box-label">Daily Dhikr Progress</span>
+                <span class="progress-count-text" id="azkar-completed-count">0 of 21</span>
+              </div>
+              <div class="progress-header-right">
+                <span class="progress-percent-badge" id="azkar-progress-percent">0% Completed</span>
+                <button class="btn-text-reset" id="btn-reset-all-azkar" title="Reset all counters for today">Reset Today</button>
+              </div>
+            </div>
+
+            <div class="azkar-main-track" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+              <div class="azkar-main-fill" id="azkar-overall-progress-bar" style="width: 0%;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         STICKY TOOLBAR: CATEGORY FILTERS & SEARCH
+    ============================================================ -->
+    <nav class="azkar-sticky-nav" aria-label="Azkar category filter and controls">
+      <div class="container azkar-nav-inner">
+
+        <!-- Search Bar -->
+        <div class="azkar-search-wrap">
+          <svg class="azkar-search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+          <input type="text" id="azkar-search-input" placeholder="Search Azkar by Arabic, Urdu, title or Hadith source..." />
+        </div>
+
+        <!-- Category Filter Pills -->
+        <div class="azkar-filters-row" role="tablist">
+          <button class="azkar-filter-pill active" data-filter="all">All Azkar (الكل)</button>
+          <button class="azkar-filter-pill" data-filter="morning">Morning (الصباح)</button>
+          <button class="azkar-filter-pill" data-filter="evening">Evening (المساء)</button>
+          <button class="azkar-filter-pill" data-filter="prayer">After Salah (بعد الصلاة)</button>
+          <button class="azkar-filter-pill" data-filter="sleep">Before Sleep (النوم)</button>
+          <button class="azkar-filter-pill" data-filter="general">General (عامة)</button>
+          <button class="azkar-filter-pill pill-fav" data-filter="favourites">⭐ Favourites</button>
+        </div>
+
+        <!-- Controls: Clean Mode & Font Size -->
+        <div class="azkar-controls-row">
+          <button class="toolbar-action-btn" id="btn-clean-mode" title="Focus on Arabic text only">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+            </svg>
+            <span class="hide-mobile">Arabic Focus</span>
+          </button>
+
+          <div class="font-btn-group">
+            <button class="btn-tool-sm" id="btn-azkar-size-minus" aria-label="Decrease Arabic font size">A−</button>
+            <button class="btn-tool-sm" id="btn-azkar-size-plus" aria-label="Increase Arabic font size">A+</button>
+          </div>
+        </div>
+
+      </div>
+    </nav>
+
+    <!-- ============================================================
+         INTERACTIVE AZKAR CARDS CONTAINER
+    ============================================================ -->
+    <section class="azkar-cards-section">
+      <div class="container">
+        <div class="azkar-cards-list" id="azkar-cards-container">
+          <!-- Populated dynamically by js/azkar.js -->
+        </div>
+
+        <!-- Attribution and Hadith Source Disclosure -->
+        <div class="quran-attribution-badge" style="margin-top: 3rem;">
+          <div class="attrib-title">📖 Hadith Verification &amp; Authentic Sources</div>
+          <div class="attrib-details">
+            <span><strong>Authentic Compilation:</strong> Supplications extracted from *Hisn al-Muslim* (Fortress of the Muslim) by Shaykh Sa'id bin Ali bin Wahf Al-Qahtani.</span>
+            <span><strong>Primary Hadith Collections:</strong> Sahih al-Bukhari, Sahih Muslim, Sunan Abi Dawud, Jami` at-Tirmidhi, and Sunan an-Nasa'i.</span>
+            <span><strong>Prescribed Counts:</strong> Each repetition count (1×, 3×, 10×, 33×, 100×) reflects strictly documented Sunnah traditions.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER (Shared component injected dynamically by js/main.js)
+  ============================================================ -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Shared main application logic -->
+  <script src="js/main.js"></script>
+
+  <!-- Azkar Module Logic -->
+  <script src="js/azkar.js"></script>
+</body>
+</html>

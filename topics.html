@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Explore divine guidance on life, character, faith, and patience through curated Quranic verses on Raah-e-Ishq-o-Hidayat (راہِ عشق و ہدایت)." />
+  <title>Quran Topic Explorer — Raah-e-Ishq-o-Hidayat (راہِ عشق و ہدایت)</title>
+
+  <!-- Progressive Web App (PWA) Meta & Icons -->
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#2D7A4F" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Raah-e-Ishq-o-Hidayat" />
+  <link rel="apple-touch-icon" href="assets/icons/icon-192.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Nastaliq+Urdu:wght@400;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body class="page-topics">
+  <!-- Dynamic Site Header -->
+  <div id="header-placeholder"></div>
+
+  <main class="page-main" id="main-content">
+    <!-- Topics Hero Section -->
+    <section class="topics-hero" aria-labelledby="topics-hero-title">
+      <div class="container">
+        <div class="topics-hero-inner">
+          <div class="bismillah-calligraphy" aria-hidden="true">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+          <span class="section-tag-gold">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4h7.6l-6.2 4.5 2.4 7.4L12 16.8l-6.2 4.5 2.4-7.4L2 9.4h7.6z"/></svg>
+            Divine Guidance by Theme
+          </span>
+          <h1 id="topics-hero-title" class="topics-hero-title">
+            Quran Topic Explorer
+            <span class="arabic-hero-sub">مَوَاضِيعُ القُرْآنِ الكَرِيمِ</span>
+          </h1>
+          <p class="topics-hero-desc">
+            Explore authentic Quranic verses organized by life themes, personal struggles, virtues, and spiritual milestones. Read with verified Urdu translations and reflect on timeless divine wisdom.
+          </p>
+
+          <!-- Quick Stats Pill -->
+          <div class="topics-stats-row">
+            <div class="topics-stat-badge">
+              <span class="stat-num">15</span>
+              <span class="stat-label">Curated Themes</span>
+            </div>
+            <div class="topics-stat-divider" aria-hidden="true"></div>
+            <div class="topics-stat-badge">
+              <span class="stat-num">30+</span>
+              <span class="stat-label">Verified Verses</span>
+            </div>
+            <div class="topics-stat-divider" aria-hidden="true"></div>
+            <div class="topics-stat-badge">
+              <span class="stat-num">100%</span>
+              <span class="stat-label">Authentic Urdu & Arabic</span>
+            </div>
+          </div>
+
+          <!-- Quick Search Bar in Hero -->
+          <div class="topics-search-container">
+            <div class="topics-search-input-wrap">
+              <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <input 
+                type="search" 
+                id="topics-search-input" 
+                class="topics-search-input" 
+                placeholder="Search topics (e.g. Sabr, Mercy, Parents, صبر, دعا)..." 
+                aria-label="Search Quranic topics"
+                autocomplete="off"
+              />
+              <button type="button" id="topics-search-clear" class="topics-search-clear-btn" aria-label="Clear search" style="display: none;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sticky Filter Navigation -->
+    <nav class="topics-filter-nav" aria-label="Topic categories filter">
+      <div class="container">
+        <div class="topics-filter-row">
+          <div class="topics-filter-pills" id="topics-filter-pills" role="tablist">
+            <button type="button" class="topic-filter-btn active" data-category="all" role="tab" aria-selected="true">
+              All Topics <span class="filter-count" id="count-all">15</span>
+            </button>
+            <button type="button" class="topic-filter-btn" data-category="spiritual" role="tab" aria-selected="false">
+              Spiritual & Faith <span class="filter-count" id="count-spiritual">6</span>
+            </button>
+            <button type="button" class="topic-filter-btn" data-category="character" role="tab" aria-selected="false">
+              Character & Ethics <span class="filter-count" id="count-character">4</span>
+            </button>
+            <button type="button" class="topic-filter-btn" data-category="life" role="tab" aria-selected="false">
+              Life & Family <span class="filter-count" id="count-life">5</span>
+            </button>
+            <button type="button" class="topic-filter-btn" data-category="saved" role="tab" aria-selected="false">
+              Saved Ayat <span class="filter-count saved-ayat-count" id="count-saved">0</span>
+            </button>
+          </div>
+
+          <div class="topics-view-controls">
+            <span class="active-count-text" id="topics-active-count-text">Showing all 15 topics</span>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content Grid -->
+    <section class="topics-grid-section" aria-label="List of Quranic Topics">
+      <div class="container">
+        <!-- Topic Cards Container -->
+        <div class="topics-cards-grid" id="topics-cards-container">
+          <!-- Populated dynamically by js/topics.js -->
+        </div>
+
+        <!-- Empty State (When search yields no results) -->
+        <div class="topics-empty-state" id="topics-empty-state" style="display: none;">
+          <div class="empty-state-icon">🔍</div>
+          <h3>No topics match your search</h3>
+          <p>We couldn't find any topics or verses matching your search term. Try searching for "Patience", "Mercy", "Sabr", or clear the filter.</p>
+          <button type="button" class="btn btn-primary" id="btn-reset-topics-search">Show All Topics</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Verified Source & Attribution Card -->
+    <section class="topics-attribution-section">
+      <div class="container">
+        <div class="topics-attribution-card">
+          <div class="attribution-badge-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <div class="attribution-content">
+            <h4>Verified Quranic Content & Responsible Curation</h4>
+            <p>
+              All Quranic verses are sourced from standard verified Uthmani script. Urdu translations are by <strong>Fateh Muhammad Jalandhry</strong> (فتح محمد جالندھری), a widely accepted and authentic Islamic scholar translation. Topic categorizations reflect thematic Quranic indexing from classical Islamic scholarship. You can read any verse in full context by clicking <em>"Read in Quran"</em>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- TOPIC DETAIL MODAL -->
+  <div class="topic-modal-backdrop" id="topic-detail-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-topic-title">
+    <div class="topic-modal-dialog">
+      <div class="topic-modal-header">
+        <div class="topic-modal-titles">
+          <div class="topic-modal-category-badge" id="modal-category-badge">Spiritual & Faith</div>
+          <h2 class="topic-modal-title" id="modal-topic-title">
+            <span id="modal-topic-en">Sabr</span>
+            <span class="topic-modal-arabic" id="modal-topic-ar">الصَّبْرُ</span>
+            <span class="topic-modal-urdu" id="modal-topic-ur">صبر اور استقامت</span>
+          </h2>
+        </div>
+        <button type="button" class="topic-modal-close" id="modal-close-btn" aria-label="Close modal">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+
+      <div class="topic-modal-body">
+        <!-- Topic Introduction -->
+        <div class="topic-modal-intro-card">
+          <div class="intro-icon" id="modal-topic-icon" aria-hidden="true">🌱</div>
+          <div class="intro-text">
+            <h3>Quranic Perspective</h3>
+            <p id="modal-topic-desc">Patience (Sabr) is one of the highest virtues in Islam...</p>
+          </div>
+        </div>
+
+        <!-- Typography / Font controls in modal -->
+        <div class="modal-font-controls">
+          <span class="font-controls-label">Text Size:</span>
+          <button type="button" class="btn-font-size" id="btn-modal-font-dec" aria-label="Decrease font size">A−</button>
+          <button type="button" class="btn-font-size" id="btn-modal-font-reset" aria-label="Reset font size">Reset</button>
+          <button type="button" class="btn-font-size" id="btn-modal-font-inc" aria-label="Increase font size">A+</button>
+        </div>
+
+        <!-- Curated Verses Section -->
+        <div class="modal-verses-section">
+          <h3 class="modal-section-heading">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4h7.6l-6.2 4.5 2.4 7.4L12 16.8l-6.2 4.5 2.4-7.4L2 9.4h7.6z"/></svg>
+            Relevant Quranic Verses
+          </h3>
+          <div class="modal-verses-list" id="modal-verses-list">
+            <!-- Populated dynamically -->
+          </div>
+        </div>
+
+        <!-- Personal Reflection Section -->
+        <div class="modal-reflection-card">
+          <div class="reflection-header">
+            <div class="reflection-badge">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              Personal Reflection Prompt
+            </div>
+            <span class="reflection-sub">تدبر و تفکر</span>
+          </div>
+          <p class="reflection-prompt-text" id="modal-reflection-prompt">
+            How can you exercise patience today when faced with unexpected hurdles?
+          </p>
+
+          <!-- Reflection Journal Input -->
+          <div class="reflection-journal-area">
+            <label for="topic-reflection-note" class="reflection-input-label">Your Personal Reflection Note (Saved to your device):</label>
+            <textarea 
+              id="topic-reflection-note" 
+              class="topic-reflection-textarea" 
+              placeholder="Write your reflections, how these verses speak to your heart, or your personal intention..." 
+              rows="3"
+            ></textarea>
+            <div class="reflection-actions">
+              <span class="reflection-saved-status" id="reflection-saved-status"></span>
+              <button type="button" class="btn btn-outline btn-sm" id="btn-save-topic-reflection">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+                Save Reflection
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic-modal-footer">
+        <button type="button" class="btn btn-ghost" id="modal-footer-close">Close</button>
+        <a href="quran.html" class="btn btn-primary" id="modal-footer-quran-btn">
+          Explore Al-Quran Reader
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dynamic Site Footer -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Core Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/topics.js"></script>
+</body>
+</html>

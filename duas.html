@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Daily Duas (الأدعية اليومية) — Authentic Quranic and Masnoon supplications with Arabic text, Urdu translation, transliteration, Hadith references, and one-click copy and share." />
+  <meta name="keywords" content="Duas, Islamic Duas, Daily Duas, Masnoon Duas, Hisn al-Muslim, Prayers, Raah-e-Ishq-o-Hidayat" />
+  <title>Daily Duas (الأدعية المأثورة) — Raah-e-Ishq-o-Hidayat (راہِ عشق و ہدایت)</title>
+
+  <!-- Progressive Web App (PWA) Meta & Icons -->
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#2D7A4F" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Raah-e-Ishq-o-Hidayat" />
+  <link rel="apple-touch-icon" href="assets/icons/icon-192.png" />
+
+  <!-- Google Fonts: Amiri for Arabic, Noto Nastaliq Urdu for Urdu -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Nastaliq+Urdu:wght@400;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body class="page-duas">
+
+  <!-- ============================================================
+       HEADER (Shared component injected dynamically by js/main.js)
+  ============================================================ -->
+  <div id="header-placeholder"></div>
+
+  <main id="main-content">
+
+    <!-- ============================================================
+         DUAS MODULE HERO
+    ============================================================ -->
+    <section class="duas-hero">
+      <div class="container">
+        <div class="duas-hero-content">
+          <h1 class="duas-hero-title" lang="ar" dir="rtl">الأدعية المأثورة</h1>
+          <p class="duas-hero-subtitle">
+            Authentic Daily Supplications · "Call upon Me; I will respond to you" — Surah Ghafir (40:60)
+          </p>
+          <p class="duas-hero-quote" lang="ar" dir="rtl">
+            وَإِذَا سَأَلَكَ عِبَادِي عَنِّي فَإِنِّي قَرِيبٌ ۖ أُجِيبُ دَعْوَةَ الدَّاعِ إِذَا دَعَانِ
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         STICKY TOOLBAR: 12 CATEGORIES & SEARCH
+    ============================================================ -->
+    <nav class="duas-sticky-nav" aria-label="Dua categories and filters">
+      <div class="container duas-nav-inner">
+
+        <!-- Search Bar -->
+        <div class="duas-search-wrap">
+          <svg class="duas-search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+          <input type="text" id="duas-search-input" placeholder="Search authentic Duas by title, Arabic, Urdu, or reference..." />
+        </div>
+
+        <!-- 12 Category Filter Pills -->
+        <div class="duas-filters-scroll" role="tablist">
+          <button class="dua-filter-pill active" data-cat="all">All Duas (الكل)</button>
+          <button class="dua-filter-pill" data-cat="morning-evening">Morning &amp; Evening (الصباح والمساء)</button>
+          <button class="dua-filter-pill" data-cat="sleep">Before Sleep (النوم)</button>
+          <button class="dua-filter-pill" data-cat="wake-up">Waking Up (الاستيقاظ)</button>
+          <button class="dua-filter-pill" data-cat="before-eating">Before Eating (قبل الطعام)</button>
+          <button class="dua-filter-pill" data-cat="after-eating">After Eating (بعد الطعام)</button>
+          <button class="dua-filter-pill" data-cat="leaving-home">Leaving Home (الخروج)</button>
+          <button class="dua-filter-pill" data-cat="entering-home">Entering Home (الدخول)</button>
+          <button class="dua-filter-pill" data-cat="travelling">Travelling (السفر)</button>
+          <button class="dua-filter-pill" data-cat="entering-mosque">Entering Mosque (المسجد)</button>
+          <button class="dua-filter-pill" data-cat="leaving-mosque">Leaving Mosque (الخروج)</button>
+          <button class="dua-filter-pill" data-cat="wudu">Wudu (الوضوء)</button>
+          <button class="dua-filter-pill" data-cat="general">General Masnoon (عامة)</button>
+          <button class="dua-filter-pill pill-fav" data-cat="favourites">⭐ Favourites</button>
+        </div>
+
+        <!-- Font Size Controls -->
+        <div class="duas-controls-row">
+          <span class="toolbar-label">Text Size:</span>
+          <div class="font-btn-group">
+            <button class="btn-tool-sm" id="btn-dua-size-minus" aria-label="Decrease Arabic font size">A−</button>
+            <button class="btn-tool-sm" id="btn-dua-size-plus" aria-label="Increase Arabic font size">A+</button>
+          </div>
+        </div>
+
+      </div>
+    </nav>
+
+    <!-- ============================================================
+         DUAS CARDS CONTAINER
+    ============================================================ -->
+    <section class="duas-cards-section">
+      <div class="container">
+        <div class="duas-cards-grid" id="duas-cards-container">
+          <!-- Populated dynamically by js/duas.js -->
+        </div>
+
+        <!-- Attribution and Content Source -->
+        <div class="quran-attribution-badge" style="margin-top: 3rem;">
+          <div class="attrib-title">📖 Hadith Verification &amp; Masnoon Sources</div>
+          <div class="attrib-details">
+            <span><strong>Authentic Compilation:</strong> Extracted from the authoritative collections of Sahih al-Bukhari, Sahih Muslim, Sunan Abi Dawud, and Jami` at-Tirmidhi.</span>
+            <span><strong>Urdu Translation &amp; Transliteration:</strong> Verified by scholarly consensus from *Hisn al-Muslim* (Fortress of the Muslim).</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER (Shared component injected dynamically by js/main.js)
+  ============================================================ -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Shared main application logic -->
+  <script src="js/main.js"></script>
+
+  <!-- Duas Module Logic -->
+  <script src="js/duas.js"></script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Offline — Raah-e-Ishq-o-Hidayat (راہِ عشق و ہدایت)</title>
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#2D7A4F" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <style>
+    .offline-page-wrap {
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: var(--space-2xl) var(--space-md);
+    }
+    .offline-card {
+      max-width: 540px;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-2xl);
+      padding: 2.5rem 2rem;
+      box-shadow: var(--shadow-md);
+    }
+    .offline-icon {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      display: inline-block;
+    }
+    .offline-brand {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--color-primary);
+      margin-bottom: 0.25rem;
+    }
+    .offline-brand-ur {
+      font-family: var(--font-urdu);
+      font-size: 1.35rem;
+      color: var(--color-gold);
+      margin-bottom: 1rem;
+      direction: rtl;
+    }
+    .offline-title {
+      font-size: 1.5rem;
+      font-weight: 750;
+      color: var(--color-text);
+      margin-bottom: 0.5rem;
+    }
+    .offline-desc {
+      font-size: 0.95rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+      margin-bottom: 1.75rem;
+    }
+    .offline-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+    .offline-cached-links {
+      border-top: 1px solid var(--color-border);
+      padding-top: 1.25rem;
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+    }
+    .offline-cached-links a {
+      color: var(--color-primary);
+      text-decoration: underline;
+      margin: 0 0.4rem;
+    }
+  </style>
+</head>
+<body class="page-offline">
+  <div id="header-placeholder"></div>
+
+  <main class="page-main">
+    <div class="container offline-page-wrap">
+      <div class="offline-card">
+        <span class="offline-icon" aria-hidden="true">📡</span>
+        <div class="offline-brand">Raah-e-Ishq-o-Hidayat</div>
+        <div class="offline-brand-ur">راہِ عشق و ہدایت</div>
+        <h1 class="offline-title">You are currently offline</h1>
+        <p class="offline-desc">
+          No internet connection was detected. You can still access previously viewed pages, recite your daily Azkar, and write personal reflections.
+        </p>
+
+        <div class="offline-actions">
+          <button type="button" class="btn btn-primary" onclick="window.location.reload();">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+            <span>Try Reconnecting</span>
+          </button>
+          <a href="index.html" class="btn btn-outline">Go to Homepage</a>
+        </div>
+
+        <div class="offline-cached-links">
+          <span>Available offline:</span>
+          <a href="quran.html">Al-Quran</a> ·
+          <a href="azkar.html">Daily Azkar</a> ·
+          <a href="journal.html">My Journal</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

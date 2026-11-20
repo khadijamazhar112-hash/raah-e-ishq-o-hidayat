@@ -1,0 +1,1222 @@
+/* ============================================================
+   NOOR (نور) — Responsive CSS
+   All media queries for the Islamic learning platform.
+   Imported AFTER css/style.css.
+   
+   Breakpoints:
+     Mobile:              max-width: 480px
+     Mobile landscape /
+       small tablet:      max-width: 768px
+     Tablet:              max-width: 1024px
+     Desktop (default):   min-width: 1025px  (base in style.css)
+   ============================================================ */
+
+
+/* ========== TABLET — max-width: 1024px ========== */
+
+@media (max-width: 1024px) {
+
+  /* --- Container --- */
+  .container {
+    padding-inline: 1.5rem;
+  }
+
+  /* --- Navigation --- */
+  .nav-links {
+    gap: 0.25rem;
+  }
+
+  .nav-links a,
+  .nav-links .nav-link {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.6rem;
+  }
+
+  /* --- Hero Section --- */
+  .hero,
+  .site-hero {
+    min-height: 80vh;
+  }
+
+  .hero .arabic-title,
+  .hero-arabic {
+    font-size: 3.2rem;   /* ~20% reduction from 4rem */
+  }
+
+  .hero .site-name,
+  .hero-title {
+    font-size: 2.8rem;   /* ~20% reduction from 3.5rem */
+  }
+
+  .hero .hero-subtitle,
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  /* --- Features Grid --- */
+  .features-grid,
+  .grid-features {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* --- Grid Utilities --- */
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* --- Typography --- */
+  .arabic-title {
+    font-size: 2rem;
+  }
+
+  h1 {
+    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  }
+
+  h2 {
+    font-size: clamp(1.3rem, 2.8vw, 2rem);
+  }
+
+  h3 {
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+  }
+
+  /* --- Footer --- */
+  .site-footer .footer-grid,
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  /* --- Page Hero Sections (inner pages) --- */
+  .page-hero {
+    min-height: 30vh;
+    padding-block: 3rem;
+  }
+
+  .page-hero .arabic-title {
+    font-size: 2rem;
+  }
+
+  /* --- Utility: Hide desktop-only at tablet and below --- */
+  .hide-desktop {
+    display: none !important;
+  }
+}
+
+
+/* ========== MOBILE LANDSCAPE / SMALL TABLET — max-width: 768px ========== */
+
+@media (max-width: 768px) {
+
+  /* --- Container --- */
+  .container {
+    padding-inline: 1rem;
+  }
+
+  /* --- Header --- */
+  :root {
+    --header-height: 60px;
+  }
+
+  .site-header {
+    height: 60px;
+    padding-block: 0;
+  }
+
+  .header-inner {
+    height: 60px;
+  }
+
+  /* Logo — hide subtitle on small screens */
+  .logo-subtitle,
+  .header-logo .logo-subtitle {
+    display: none;
+  }
+
+  /* Header Actions — hide "Register" button text, show icon only */
+  .header-actions .btn-register .btn-text,
+  .header-actions .register-text {
+    display: none;
+  }
+
+  .header-actions .btn-register,
+  .header-actions .btn-icon-only {
+    padding: 0.4rem;
+    min-width: 36px;
+    min-height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* --- Navigation: Mobile Menu --- */
+
+  /* Show hamburger toggle */
+  .nav-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.4rem;
+    color: var(--color-text, #1A1A2E);
+    z-index: 200;
+  }
+
+  /* Hide nav links by default — slide up / hidden */
+  .nav-links,
+  .site-nav .nav-links {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background: var(--color-surface, #ffffff);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    z-index: 150;
+    padding: 0.5rem 0 1rem;
+    transform: translateY(-110%);
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.3s ease,
+                visibility 0.3s ease;
+    gap: 0;
+    overflow-y: auto;
+    max-height: calc(100vh - 60px);
+  }
+
+  /* Nav links — full-width, larger touch targets */
+  .nav-links a,
+  .nav-links .nav-link {
+    display: block;
+    width: 100%;
+    font-size: 1rem;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--color-border, #e5e7eb);
+    text-align: start;
+    color: var(--color-text, #1A1A2E);
+    text-decoration: none;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+
+  .nav-links a:hover,
+  .nav-links .nav-link:hover,
+  .nav-links a:focus-visible,
+  .nav-links .nav-link:focus-visible {
+    background: var(--color-primary-soft, rgba(26, 86, 55, 0.07));
+    color: var(--color-primary, #1A5637);
+  }
+
+  .nav-links a.active,
+  .nav-links .nav-link.active {
+    background: var(--color-primary-soft, rgba(26, 86, 55, 0.07));
+    color: var(--color-primary, #1A5637);
+    font-weight: 600;
+  }
+
+  /* When .nav-open is set on the parent — reveal nav */
+  .nav-open .nav-links,
+  .site-header.nav-open .nav-links,
+  body.nav-open .nav-links {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* --- Hero Section --- */
+  .hero,
+  .site-hero {
+    min-height: 100svh;
+    min-height: 100vh; /* fallback */
+    padding-block: 5rem 3rem;
+    text-align: center;
+  }
+
+  .hero .arabic-title,
+  .hero-arabic {
+    font-size: 2.4rem;
+  }
+
+  .hero .site-name,
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero .hero-subtitle,
+  .hero-subtitle {
+    font-size: 0.95rem;
+    max-width: 90%;
+    margin-inline: auto;
+  }
+
+  /* Hero buttons — stack vertically */
+  .hero .btn-group,
+  .hero-buttons,
+  .hero .hero-cta {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+  }
+
+  .hero .btn-group .btn,
+  .hero-buttons .btn,
+  .hero .hero-cta .btn {
+    width: 100%;
+    max-width: 320px;
+    justify-content: center;
+  }
+
+  /* --- Features Grid --- */
+  .features-grid,
+  .grid-features {
+    grid-template-columns: 1fr;
+  }
+
+  /* --- Grid Utilities --- */
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  /* --- Cards --- */
+  .card {
+    width: 100%;
+    padding: 1.25rem;
+  }
+
+  /* --- Daily Verse Section --- */
+  .daily-verse,
+  .verse-section,
+  .quran-verse-section {
+    padding-block: 2.5rem;
+  }
+
+  .daily-verse .verse-arabic,
+  .verse-arabic {
+    font-size: 1.6rem;
+    line-height: 2.2;
+  }
+
+  .daily-verse .verse-translation,
+  .verse-translation {
+    font-size: 0.9rem;
+  }
+
+  .daily-verse .verse-meta,
+  .verse-meta,
+  .verse-reference {
+    font-size: 0.8rem;
+  }
+
+  .daily-verse .verse-content,
+  .verse-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  /* --- Typography --- */
+  .arabic-title {
+    font-size: 1.6rem;
+  }
+
+  h1 {
+    font-size: clamp(1.4rem, 5vw, 2rem);
+  }
+
+  h2 {
+    font-size: clamp(1.2rem, 4vw, 1.6rem);
+  }
+
+  h3 {
+    font-size: clamp(1rem, 3.5vw, 1.3rem);
+  }
+
+  /* --- Buttons --- */
+  .btn-group {
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .btn-full-mobile {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  /* --- Footer --- */
+  .site-footer .footer-grid,
+  .footer-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .site-footer .footer-brand,
+  .footer-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .site-footer .footer-links,
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .site-footer .footer-social,
+  .footer-social {
+    justify-content: center;
+  }
+
+  .site-footer .footer-bottom,
+  .footer-bottom {
+    text-align: center;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  /* --- Modals — full screen on mobile --- */
+  .modal-overlay {
+    padding: 0;
+    align-items: flex-end;
+  }
+
+  .modal-container {
+    width: 100vw;
+    max-width: 100vw;
+    height: 95vh;
+    max-height: 95vh;
+    border-radius: var(--radius-lg, 1rem) var(--radius-lg, 1rem) 0 0;
+    margin: 0;
+  }
+
+  .modal-header {
+    padding: 1rem 1.25rem;
+  }
+
+  .modal-body {
+    padding: 1rem 1.25rem;
+  }
+
+  .modal-footer {
+    padding: 1rem 1.25rem;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .modal-footer .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* --- Page Hero Sections (inner pages) --- */
+  .page-hero {
+    min-height: 25vh;
+    padding-block: 2.5rem;
+  }
+
+  .page-hero .arabic-title {
+    font-size: 1.6rem;
+  }
+
+  .page-hero .page-subtitle {
+    font-size: 0.9rem;
+  }
+
+  /* --- Utility Overrides --- */
+  .hide-mobile {
+    display: none !important;
+  }
+
+  .show-mobile {
+    display: block !important;
+  }
+
+  /* Show hamburger button (was hidden on desktop) */
+  .nav-toggle {
+    display: flex;
+  }
+}
+
+
+/* ========== MOBILE — max-width: 480px ========== */
+
+@media (max-width: 480px) {
+
+  /* --- Container --- */
+  .container {
+    padding-inline: 0.875rem;
+  }
+
+  /* --- Hero Section --- */
+  .hero .arabic-title,
+  .hero-arabic {
+    font-size: 1.9rem;
+    line-height: 1.6;
+  }
+
+  .hero .site-name,
+  .hero-title {
+    font-size: 1.6rem;
+  }
+
+  .hero .hero-subtitle,
+  .hero-subtitle {
+    font-size: 0.875rem;
+  }
+
+  /* --- Daily Verse --- */
+  .verse-arabic {
+    font-size: 1.4rem;
+    line-height: 2;
+  }
+
+  /* --- Typography --- */
+  .arabic-title {
+    font-size: 1.4rem;
+    line-height: 1.8;
+  }
+
+  h1 {
+    font-size: clamp(1.25rem, 6vw, 1.75rem);
+  }
+
+  h2 {
+    font-size: clamp(1.1rem, 5vw, 1.4rem);
+  }
+
+  h3 {
+    font-size: clamp(0.95rem, 4vw, 1.15rem);
+  }
+
+  /* --- Cards --- */
+  .card {
+    padding: 1rem;
+  }
+
+  /* --- Modals — truly full screen at 480px --- */
+  .modal-container {
+    height: 100vh;
+    max-height: 100vh;
+    border-radius: 0;
+  }
+
+  /* --- Buttons --- */
+  .btn {
+    font-size: 0.875rem;
+    padding: 0.6rem 1.2rem;
+  }
+
+  .btn-lg {
+    font-size: 0.95rem;
+    padding: 0.75rem 1.5rem;
+  }
+
+  /* --- Page Hero Sections --- */
+  .page-hero {
+    min-height: 20vh;
+    padding-block: 2rem;
+  }
+
+  .page-hero .arabic-title {
+    font-size: 1.4rem;
+  }
+
+  /* --- Footer --- */
+  .site-footer {
+    padding-block: 2rem 1.5rem;
+  }
+}
+
+
+/* ========== DESKTOP — min-width: 1025px ========== */
+
+@media (min-width: 1025px) {
+
+  /* --- Hide mobile-only elements on desktop --- */
+  .nav-toggle {
+    display: none !important;
+  }
+
+  .show-mobile {
+    display: none !important;
+  }
+
+  /* Ensure nav links are always visible and horizontal on desktop */
+  .nav-links,
+  .site-nav .nav-links {
+    display: flex;
+    flex-direction: row;
+    position: static;
+    transform: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+    overflow: visible;
+    max-height: none;
+  }
+
+  /* --- Hero Section --- */
+  .hero,
+  .site-hero {
+    min-height: 90vh;
+  }
+
+  .hero .arabic-title,
+  .hero-arabic {
+    font-size: 4rem;
+  }
+
+  .hero .site-name,
+  .hero-title {
+    font-size: 3.5rem;
+  }
+
+  /* --- Features Grid --- */
+  .features-grid,
+  .grid-features {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* --- Grid Utilities --- */
+  .grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* --- Typography --- */
+  .arabic-title {
+    font-size: 2.5rem;
+  }
+
+  /* --- Footer --- */
+  .site-footer .footer-grid,
+  .footer-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* --- Modals --- */
+  .modal-overlay {
+    align-items: center;
+    padding: 1rem;
+  }
+
+  .modal-container {
+    width: auto;
+    max-width: 640px;
+    height: auto;
+    max-height: 90vh;
+    border-radius: var(--radius-xl, 1.25rem);
+  }
+
+  /* --- Utility: show-mobile hidden on desktop (already handled above) --- */
+  .hide-desktop {
+    display: none !important;
+  }
+}
+
+
+/* ========== PRINT ========== */
+
+@media print {
+  .site-header,
+  .site-footer,
+  .nav-toggle,
+  .header-actions,
+  .btn-group,
+  .modal-overlay {
+    display: none !important;
+  }
+
+  body {
+    font-size: 12pt;
+    color: #000;
+    background: #fff;
+  }
+
+  .container {
+    max-width: 100%;
+    padding-inline: 0;
+  }
+
+  .arabic-title,
+  .verse-arabic {
+    font-size: 1.4rem;
+  }
+}
+
+
+/* ========== REDUCED MOTION ========== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .nav-links,
+  .site-nav .nav-links {
+    transition: none !important;
+  }
+}
+
+
+/* ========== DARK MODE — responsive adjustments ========== */
+
+@media (max-width: 768px) {
+  [data-theme="dark"] .nav-links,
+  [data-theme="dark"] .site-nav .nav-links {
+    background: var(--color-surface-dark, #12122a);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  }
+
+  [data-theme="dark"] .nav-links a,
+  [data-theme="dark"] .nav-links .nav-link {
+    border-bottom-color: rgba(255, 255, 255, 0.08);
+    color: var(--color-text-dark, #e8e8f0);
+  }
+
+  [data-theme="dark"] .nav-links a:hover,
+  [data-theme="dark"] .nav-links .nav-link:hover {
+    background: rgba(212, 175, 55, 0.1);
+    color: var(--color-gold, #D4AF37);
+  }
+}
+
+/* ========== HOMEPAGE MODULE RESPONSIVENESS ========== */
+
+@media (max-width: 900px) {
+  .continue-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  .continue-actions {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .journey-cta-banner {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+
+  .journey-cta-text p {
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .azkar-grid,
+  .topics-grid,
+  .journey-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .verse-actions-bar {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .verse-actions-bar .btn,
+  .verse-actions-bar .btn-bookmark,
+  .verse-actions-bar .btn-audio {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .featured-dua-box {
+    padding: var(--space-lg) var(--space-md);
+  }
+
+  .continue-card {
+    padding: var(--space-lg) var(--space-md);
+  }
+}
+
+/* ========== QURAN MODULE RESPONSIVENESS ========== */
+
+@media (max-width: 900px) {
+  .surah-header-banner {
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .surah-nav-btn-wrap {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .player-inner {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .player-track-info {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .player-controls-center {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .player-settings-right {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .toolbar-inner {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .toolbar-group,
+  .toolbar-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .toolbar-select {
+    flex: 1;
+  }
+
+  .surah-dropdown {
+    max-width: 100%;
+  }
+
+  .surah-cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ayah-row {
+    padding: var(--space-md);
+  }
+
+  .quran-hero {
+    padding-top: calc(var(--header-height) + var(--space-md));
+  }
+
+  .quran-tabs-bar {
+    width: 100%;
+    border-radius: var(--radius-lg);
+  }
+
+  .quran-tab-btn {
+    flex: 1;
+    justify-content: center;
+    padding: 0.5rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* ========== AZKAR MODULE RESPONSIVENESS ========== */
+
+@media (max-width: 640px) {
+  .azkar-hero {
+    padding-top: calc(var(--header-height) + var(--space-md));
+  }
+
+  .azkar-progress-box {
+    padding: var(--space-md);
+  }
+
+  .azkar-search-wrap {
+    max-width: 100%;
+  }
+
+  .azkar-filters-row {
+    justify-content: flex-start;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 0.25rem;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .azkar-filter-pill {
+    flex-shrink: 0;
+  }
+
+  .azkar-interactive-card {
+    padding: var(--space-md);
+  }
+
+  .azkar-counter-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+
+  .counter-info-left {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .azkar-tap-counter-btn {
+    width: 100%;
+    min-height: 54px;
+    padding: 0.75rem;
+  }
+}
+
+/* ========== DUAS MODULE RESPONSIVENESS ========== */
+
+@media (max-width: 768px) {
+  .duas-cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .duas-hero {
+    padding-top: calc(var(--header-height) + var(--space-md));
+  }
+
+  .duas-search-wrap {
+    max-width: 100%;
+  }
+
+  .dua-card {
+    padding: var(--space-md);
+  }
+
+  .dua-action-bar {
+    justify-content: flex-start;
+  }
+
+  .btn-copy-chip {
+    flex: 1;
+    justify-content: center;
+  }
+}
+
+
+/* ========== TOPICS MODULE RESPONSIVENESS ========== */
+
+@media (max-width: 860px) {
+  .topics-cards-grid {
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .topics-hero {
+    padding-top: calc(var(--header-height) + var(--space-lg));
+  }
+
+  .topics-stats-row {
+    display: none; /* Hide stats chip on smaller mobile screens for focus */
+  }
+
+  .topics-cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .topics-filter-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .topics-filter-pills {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .topic-modal-dialog {
+    max-height: 94vh;
+  }
+
+  .topic-modal-header,
+  .topic-modal-body,
+  .topic-modal-footer {
+    padding-left: 1.15rem;
+    padding-right: 1.15rem;
+  }
+
+  .ayah-card-top-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .ayah-actions-toolbar {
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .topic-modal-footer {
+    flex-direction: column-reverse;
+  }
+
+  .topic-modal-footer .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .topic-card-quote-preview {
+    padding: 0.5rem 0.75rem;
+  }
+
+  .quote-arabic {
+    font-size: 0.95rem;
+  }
+
+  .ayah-modal-arabic {
+    font-size: 1.35rem;
+    line-height: 2;
+  }
+
+  .ayah-modal-urdu {
+    font-size: 1.05rem;
+    line-height: 2;
+  }
+
+  .reflection-actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+
+/* ========== JOURNAL MODULE RESPONSIVENESS ========== */
+
+@media (max-width: 992px) {
+  .journal-workspace-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .reflections-list-container {
+    max-height: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .journal-hero {
+    padding-top: calc(var(--header-height) + var(--space-lg));
+  }
+
+  .journal-privacy-badge {
+    font-size: 0.775rem;
+    padding: 0.45rem 0.95rem;
+  }
+
+  .journal-stats-row {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-md);
+    padding: 0.65rem 1.15rem;
+  }
+
+  .journal-stat-divider {
+    display: none;
+  }
+
+  .journal-card {
+    padding: 1.25rem;
+  }
+
+  .form-row-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .vault-filter-bar {
+    flex-direction: column;
+  }
+
+  .vault-sort-wrap {
+    width: 100%;
+  }
+
+  .journal-modal-header,
+  .journal-modal-body,
+  .journal-modal-footer {
+    padding: 1rem 1.25rem;
+  }
+
+  .journal-modal-footer {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+
+  .modal-footer-left,
+  .modal-footer-right {
+    width: 100%;
+  }
+
+  .modal-footer-left .btn,
+  .modal-footer-right .btn {
+    flex: 1;
+    justify-content: center;
+  }
+}
+
+
+/* ========== JOURNEY MODULE RESPONSIVENESS ========== */
+
+@media (max-width: 992px) {
+  .dashboard-grid-layout {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .last-read-highlight-box {
+    grid-template-columns: 1fr;
+    gap: 1.15rem;
+  }
+
+  .last-read-actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .last-read-actions .btn {
+    flex: 1;
+    justify-content: center;
+  }
+
+  .juz-mini-grid {
+    grid-template-columns: repeat(10, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .journey-summary-bar {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding: 1.15rem;
+  }
+
+  .summary-stat-divider {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .journey-hero {
+    padding-top: calc(var(--header-height) + var(--space-lg));
+  }
+
+  .journey-mindful-pill {
+    font-size: 0.775rem;
+    padding: 0.45rem 0.95rem;
+  }
+
+  .journey-summary-bar {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-card {
+    padding: 1.25rem;
+  }
+
+  .juz-mini-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .azkar-categories-breakdown {
+    grid-template-columns: 1fr;
+  }
+
+  .journey-modal-header,
+  .journey-modal-body,
+  .journey-modal-footer {
+    padding: 1rem 1.15rem;
+  }
+
+  .journey-modal-footer {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+
+  .modal-footer-right-actions {
+    flex-direction: column;
+  }
+
+  .modal-footer-right-actions .btn,
+  .journey-modal-footer .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+
+/* ========== SETTINGS MODULE RESPONSIVENESS ========== */
+
+@media (max-width: 992px) {
+  .settings-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .sources-attribution-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .settings-hero {
+    padding-top: calc(var(--header-height) + var(--space-lg));
+  }
+
+  .settings-option-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .theme-switch-group,
+  .font-size-choice-group,
+  .settings-option-row .btn {
+    width: 100%;
+  }
+
+  .theme-choice-btn,
+  .font-choice-btn {
+    flex: 1;
+    justify-content: center;
+  }
+
+  .sources-attribution-grid {
+    grid-template-columns: 1fr;
+  }
+}

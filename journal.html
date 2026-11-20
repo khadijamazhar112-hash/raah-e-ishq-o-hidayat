@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Personal Quran Reflection Journal on Raah-e-Ishq-o-Hidayat (راہِ عشق و ہدایت). Capture your heartfelt insights, Tadabbur, and life lessons from the Holy Quran." />
+  <title>My Quran Journal — Raah-e-Ishq-o-Hidayat (راہِ عشق و ہدایت)</title>
+
+  <!-- Progressive Web App (PWA) Meta & Icons -->
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#2D7A4F" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Raah-e-Ishq-o-Hidayat" />
+  <link rel="apple-touch-icon" href="assets/icons/icon-192.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Nastaliq+Urdu:wght@400;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body class="page-journal">
+  <!-- Dynamic Site Header -->
+  <div id="header-placeholder"></div>
+
+  <main class="page-main" id="main-content">
+    <!-- Journal Hero Section -->
+    <section class="journal-hero" aria-labelledby="journal-hero-title">
+      <div class="container">
+        <div class="journal-hero-inner">
+          <div class="bismillah-calligraphy" aria-hidden="true">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+          <span class="section-tag-gold">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4h7.6l-6.2 4.5 2.4 7.4L12 16.8l-6.2 4.5 2.4-7.4L2 9.4h7.6z"/></svg>
+            Personal Tadabbur & Reflection
+          </span>
+          <h1 id="journal-hero-title" class="journal-hero-title">
+            My Quran Reflection Journal
+            <span class="arabic-hero-sub">مُذَكَّرَةُ التَّدَبُّرِ وَالتَّفَكُّرِ</span>
+          </h1>
+          <p class="journal-hero-desc">
+            Pause, reflect, and capture the personal lessons Allah reveals to your heart through His verses. Connect divine revelation with your daily thoughts, struggles, and gratitude.
+          </p>
+
+          <!-- Privacy Assurance Pill -->
+          <div class="journal-privacy-badge">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+            <span><strong>Private by Default:</strong> Your reflections are saved securely on your device and are never shared publicly.</span>
+          </div>
+
+          <!-- Quick Stats Row -->
+          <div class="journal-stats-row">
+            <div class="journal-stat-item">
+              <span class="stat-number" id="journal-stat-total">0</span>
+              <span class="stat-label">Reflections Saved</span>
+            </div>
+            <div class="journal-stat-divider" aria-hidden="true"></div>
+            <div class="journal-stat-item">
+              <span class="stat-number" id="journal-stat-surahs">0</span>
+              <span class="stat-label">Surahs Explored</span>
+            </div>
+            <div class="journal-stat-divider" aria-hidden="true"></div>
+            <div class="journal-stat-item">
+              <span class="stat-number" id="journal-stat-words">0</span>
+              <span class="stat-label">Words Written</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Journal Main Content (Editor & Vault) -->
+    <section class="journal-workspace-section">
+      <div class="container">
+        <div class="journal-workspace-grid">
+          
+          <!-- LEFT / TOP COLUMN: Reflection Composer / Editor -->
+          <div class="journal-editor-column">
+            <div class="journal-card journal-editor-card" id="journal-editor-card">
+              <div class="journal-card-header">
+                <div class="card-header-title-wrap">
+                  <span class="journal-card-icon">✍️</span>
+                  <div>
+                    <h2 class="journal-card-title" id="editor-heading">Write New Reflection</h2>
+                    <p class="journal-card-subtitle">Connect a verse with your personal contemplation</p>
+                  </div>
+                </div>
+                <div class="editor-header-actions">
+                  <span class="draft-indicator" id="draft-save-indicator" style="display: none;">Draft saved</span>
+                  <button type="button" class="btn-clear-editor" id="btn-reset-form" title="Clear form">
+                    Reset
+                  </button>
+                </div>
+              </div>
+
+              <form id="journal-reflection-form" class="journal-form" novalidate>
+                <input type="hidden" id="editing-reflection-id" value="" />
+
+                <!-- Surah & Ayah Selector Row -->
+                <div class="form-row-grid">
+                  <div class="form-group form-group-surah">
+                    <label for="reflection-surah-select" class="form-label">
+                      Select Surah <span class="required">*</span>
+                    </label>
+                    <div class="select-wrapper">
+                      <select id="reflection-surah-select" class="form-select" required>
+                        <option value="">-- Choose a Surah --</option>
+                        <!-- Populated dynamically with 114 Surahs -->
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="form-group form-group-ayah">
+                    <label for="reflection-ayah-input" class="form-label">
+                      Ayah # <span class="required">*</span>
+                    </label>
+                    <div class="ayah-input-wrapper">
+                      <input 
+                        type="number" 
+                        id="reflection-ayah-input" 
+                        class="form-input" 
+                        placeholder="e.g. 153" 
+                        min="1" 
+                        max="286" 
+                        required 
+                      />
+                      <a href="#" id="link-preview-in-quran" class="btn-preview-ayah" title="Read Ayah in Al-Quran Reader" target="_blank" style="display: none;">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Live Verse Preview Box (When available) -->
+                <div class="verse-preview-chip" id="verse-preview-chip" style="display: none;">
+                  <span class="preview-chip-icon">📖</span>
+                  <span class="preview-chip-text" id="verse-preview-text">Surah Al-Baqarah (2:153)</span>
+                  <a href="quran.html" id="verse-preview-reader-link" class="preview-chip-link" target="_blank">Open in Reader ↗</a>
+                </div>
+
+                <!-- Reflection Title -->
+                <div class="form-group">
+                  <label for="reflection-title-input" class="form-label">
+                    Reflection Title <span class="required">*</span>
+                  </label>
+                  <input 
+                    type="text" 
+                    id="reflection-title-input" 
+                    class="form-input" 
+                    placeholder="e.g. Finding Peace in Times of Difficulty" 
+                    maxlength="120" 
+                    required 
+                  />
+                </div>
+
+                <!-- Theme / Tag Selector -->
+                <div class="form-group">
+                  <label class="form-label">Category / Theme Tag</label>
+                  <div class="tag-selector-pills" id="tag-selector-pills">
+                    <button type="button" class="tag-pill active" data-tag="Patience">🌱 Patience</button>
+                    <button type="button" class="tag-pill" data-tag="Gratitude">✨ Gratitude</button>
+                    <button type="button" class="tag-pill" data-tag="Hope">🌅 Hope</button>
+                    <button type="button" class="tag-pill" data-tag="Repentance">🕊️ Repentance</button>
+                    <button type="button" class="tag-pill" data-tag="Guidance">🧭 Guidance</button>
+                    <button type="button" class="tag-pill" data-tag="Family">🏡 Family</button>
+                    <button type="button" class="tag-pill" data-tag="Life Trial">⛅ Life Trial</button>
+                  </div>
+                  <input type="hidden" id="selected-theme-tag" value="Patience" />
+                </div>
+
+                <!-- Tadabbur Prompt Starters (Inspiration Box) -->
+                <div class="reflection-prompts-box">
+                  <div class="prompts-box-header">
+                    <span class="prompts-box-title">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4h7.6l-6.2 4.5 2.4 7.4L12 16.8l-6.2 4.5 2.4-7.4L2 9.4h7.6z"/></svg>
+                      Inspiration Prompts (Click to add to your reflection)
+                    </span>
+                  </div>
+                  <div class="prompts-chips-grid">
+                    <button type="button" class="prompt-chip-btn" data-prompt="• What did I learn from this Ayah?">
+                      "What did I learn from this Ayah?"
+                    </button>
+                    <button type="button" class="prompt-chip-btn" data-prompt="• What does this remind me of in my personal life?">
+                      "What does this remind me of?"
+                    </button>
+                    <button type="button" class="prompt-chip-btn" data-prompt="• How can I apply this lesson in my daily actions?">
+                      "How can I apply this in daily life?"
+                    </button>
+                    <button type="button" class="prompt-chip-btn" data-prompt="• What question or deeper thought does this raise for me?">
+                      "What should I reflect on further?"
+                    </button>
+                    <button type="button" class="prompt-chip-btn" data-prompt="• What emotion or hope did this verse stir within me?">
+                      "What feeling did this verse stir?"
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Reflection Body Writing Area -->
+                <div class="form-group">
+                  <div class="label-with-counter">
+                    <label for="reflection-body-input" class="form-label">
+                      Your Reflection <span class="required">*</span>
+                    </label>
+                    <span class="word-counter" id="editor-word-count">0 words • 0 chars</span>
+                  </div>
+                  <textarea 
+                    id="reflection-body-input" 
+                    class="form-textarea" 
+                    rows="8" 
+                    placeholder="Write your personal thoughts, lessons, prayers, and insights here... Let your heart speak freely." 
+                    required
+                  ></textarea>
+                </div>
+
+                <!-- Form Submit and Actions -->
+                <div class="form-actions-row">
+                  <button type="button" class="btn btn-ghost" id="btn-cancel-edit" style="display: none;">
+                    Cancel Edit
+                  </button>
+                  <button type="submit" class="btn btn-primary btn-save-reflection" id="btn-save-reflection">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+                    <span id="btn-save-text">Save Reflection</span>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <!-- RIGHT / BOTTOM COLUMN: My Reflections Vault -->
+          <div class="journal-vault-column">
+            <div class="journal-card journal-vault-card">
+              <div class="journal-card-header">
+                <div class="card-header-title-wrap">
+                  <span class="journal-card-icon">📚</span>
+                  <div>
+                    <h2 class="journal-card-title">My Reflections Vault</h2>
+                    <p class="journal-card-subtitle" id="vault-subtitle">Showing all saved reflections</p>
+                  </div>
+                </div>
+                <!-- Export Button -->
+                <button type="button" class="btn-export-vault" id="btn-export-journal" title="Export reflections as text backup">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                  <span>Export</span>
+                </button>
+              </div>
+
+              <!-- Search and Filter Bar -->
+              <div class="vault-filter-bar">
+                <div class="vault-search-wrap">
+                  <svg class="vault-search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                  <input 
+                    type="search" 
+                    id="vault-search-input" 
+                    class="vault-search-input" 
+                    placeholder="Search by title, verse, or keywords..." 
+                    aria-label="Search reflections"
+                  />
+                  <button type="button" id="vault-search-clear" class="vault-search-clear" style="display: none;" aria-label="Clear search">×</button>
+                </div>
+
+                <div class="vault-sort-wrap">
+                  <label for="vault-sort-select" class="sr-only">Sort reflections</label>
+                  <select id="vault-sort-select" class="form-select form-select-sm">
+                    <option value="newest">Newest First</option>
+                    <option value="oldest">Oldest First</option>
+                    <option value="surah">By Surah Order</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Tag Quick Filter Pills -->
+              <div class="vault-tags-filter" id="vault-tags-filter">
+                <button type="button" class="vault-tag-btn active" data-filter="all">All</button>
+                <button type="button" class="vault-tag-btn" data-filter="Patience">Patience</button>
+                <button type="button" class="vault-tag-btn" data-filter="Gratitude">Gratitude</button>
+                <button type="button" class="vault-tag-btn" data-filter="Hope">Hope</button>
+                <button type="button" class="vault-tag-btn" data-filter="Repentance">Repentance</button>
+                <button type="button" class="vault-tag-btn" data-filter="Guidance">Guidance</button>
+                <button type="button" class="vault-tag-btn" data-filter="Family">Family</button>
+                <button type="button" class="vault-tag-btn" data-filter="Life Trial">Life Trial</button>
+              </div>
+
+              <!-- Reflections List / Cards Container -->
+              <div class="reflections-list-container" id="reflections-list-container">
+                <!-- Populated dynamically by js/journal.js -->
+              </div>
+
+              <!-- Empty State -->
+              <div class="vault-empty-state" id="vault-empty-state" style="display: none;">
+                <div class="vault-empty-icon">📖</div>
+                <h3>No Reflections Yet</h3>
+                <p>Your journal is ready for your contemplation. Choose a Surah and Ayah on the left and write your first personal reflection.</p>
+                <button type="button" class="btn btn-primary btn-sm" id="btn-focus-editor">
+                  Write Your First Reflection
+                </button>
+              </div>
+
+              <!-- No Search Results State -->
+              <div class="vault-no-results-state" id="vault-no-results-state" style="display: none;">
+                <div class="vault-empty-icon">🔍</div>
+                <h3>No matching reflections</h3>
+                <p>Try searching with different keywords, or clear your search query.</p>
+                <button type="button" class="btn btn-outline btn-sm" id="btn-reset-vault-search">
+                  Clear Search
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Tadabbur Guidance Info Section -->
+    <section class="journal-etiquette-section">
+      <div class="container">
+        <div class="etiquette-card">
+          <div class="etiquette-icon">🌿</div>
+          <div class="etiquette-content">
+            <h4>The Art of Quranic Tadabbur (تدبّر القرآن)</h4>
+            <p>
+              Allah says: <em>"Do they not then reflect upon the Quran, or are there locks upon their hearts?"</em> (47:24). 
+              Tadabbur is the personal engagement of the heart with the divine word—pondering the wisdom behind verses, assessing one's deeds in light of Allah's guidance, and turning insights into righteous character.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- VIEW FULL REFLECTION MODAL -->
+  <div class="journal-modal-backdrop" id="journal-view-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-ref-title">
+    <div class="journal-modal-dialog">
+      <div class="journal-modal-header">
+        <div class="modal-title-wrap">
+          <div class="modal-tags-row">
+            <span class="modal-ref-badge" id="modal-ref-ayah-badge">Surah Al-Baqarah (2:153)</span>
+            <span class="modal-tag-badge" id="modal-ref-tag-badge">Patience</span>
+          </div>
+          <h2 class="journal-modal-title" id="modal-ref-title">Reflection Title</h2>
+          <span class="modal-ref-date" id="modal-ref-date">November 20, 2026</span>
+        </div>
+        <button type="button" class="journal-modal-close" id="modal-close-btn" aria-label="Close reflection modal">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+
+      <div class="journal-modal-body">
+        <div class="modal-reflection-content" id="modal-ref-content">
+          <!-- Full reflection text with formatted paragraphs -->
+        </div>
+      </div>
+
+      <div class="journal-modal-footer">
+        <div class="modal-footer-left">
+          <button type="button" class="btn btn-outline btn-sm" id="modal-btn-edit">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+            Edit
+          </button>
+          <button type="button" class="btn btn-ghost btn-sm text-danger" id="modal-btn-delete">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+            Delete
+          </button>
+        </div>
+        <div class="modal-footer-right">
+          <a href="#" id="modal-link-quran" class="btn btn-primary btn-sm">
+            Read Ayah in Quran Reader
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dynamic Site Footer -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Core Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/journal.js"></script>
+</body>
+</html>

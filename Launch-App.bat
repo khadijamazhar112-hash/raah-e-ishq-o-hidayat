@@ -1,0 +1,3 @@
+@echo off
+echo Starting Raah-e-Ishq-o-Hidayat in App Mode...
+start msedge.exe --app="http://localhost:8080" 2>nul || start chrome.exe --app="http://localhost:8080"

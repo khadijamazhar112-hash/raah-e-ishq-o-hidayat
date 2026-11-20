@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Settings and personalization for Raah-e-Ishq-o-Hidayat (راہِ عشق و ہدایت). Customize your Arabic typography, recitation preferences, theme, and data controls." />
+  <title>Settings — Raah-e-Ishq-o-Hidayat (راہِ عشق و ہدایت)</title>
+
+  <!-- Progressive Web App (PWA) Meta & Icons -->
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#2D7A4F" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Raah-e-Ishq-o-Hidayat" />
+  <link rel="apple-touch-icon" href="assets/icons/icon-192.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Nastaliq+Urdu:wght@400;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body class="page-settings">
+  <!-- Dynamic Site Header -->
+  <div id="header-placeholder"></div>
+
+  <main class="page-main" id="main-content">
+    <!-- Settings Hero -->
+    <section class="settings-hero" aria-labelledby="settings-hero-title">
+      <div class="container">
+        <div class="settings-hero-inner">
+          <div class="bismillah-calligraphy" aria-hidden="true">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+          <span class="section-tag-gold">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4h7.6l-6.2 4.5 2.4 7.4L12 16.8l-6.2 4.5 2.4-7.4L2 9.4h7.6z"/></svg>
+            Preferences & Personalization
+          </span>
+          <h1 id="settings-hero-title" class="settings-hero-title">
+            Settings & Reading Experience
+            <span class="arabic-hero-sub">الإِعْدَادَاتُ وَالتَّفْضِيلَاتُ</span>
+          </h1>
+          <p class="settings-hero-desc">
+            Personalize your Quran reading typography, default reciter, theme modes, and manage your stored local data with peace of mind.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Settings Workspace Layout -->
+    <section class="settings-content-section">
+      <div class="container">
+        <div class="settings-grid">
+
+          <!-- PWA INSTALL CARD -->
+          <div class="settings-card pwa-install-card" style="border: 1px solid rgba(212, 175, 55, 0.4);">
+            <div class="settings-card-header">
+              <span class="settings-card-icon">📲</span>
+              <div>
+                <h2 class="settings-card-title">Install Mobile App (PWA)</h2>
+                <p class="settings-card-subtitle">Install Raah-e-Ishq-o-Hidayat on your Android phone or computer for fast offline access</p>
+              </div>
+            </div>
+            <div class="settings-card-body">
+              <div class="settings-option-row">
+                <div class="option-info">
+                  <span class="option-label">Application Status</span>
+                  <span class="option-desc" id="pwa-settings-status">Ready to install on your home screen for quick offline reading</span>
+                </div>
+                <button type="button" class="btn btn-primary" id="btn-pwa-install-settings" style="display:inline-flex; align-items:center; gap:0.5rem;">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="7 10 12 15 17 10"/>
+                    <line x1="12" y1="15" x2="12" y2="3"/>
+                  </svg>
+                  <span id="pwa-settings-btn-text">Install App Now</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 1. APPEARANCE & THEME -->
+          <div class="settings-card">
+            <div class="settings-card-header">
+              <span class="settings-card-icon">🌓</span>
+              <div>
+                <h2 class="settings-card-title">Theme & Appearance</h2>
+                <p class="settings-card-subtitle">Choose how Raah-e-Ishq-o-Hidayat looks on your screen</p>
+              </div>
+            </div>
+            <div class="settings-card-body">
+              <div class="settings-option-row">
+                <div class="option-info">
+                  <span class="option-label">Interface Theme</span>
+                  <span class="option-desc">Select between warm ivory light mode and dark reading mode</span>
+                </div>
+                <div class="theme-switch-group" id="theme-switch-group">
+                  <button type="button" class="theme-choice-btn" data-theme-val="light" id="theme-btn-light">
+                    ☀️ Light
+                  </button>
+                  <button type="button" class="theme-choice-btn" data-theme-val="dark" id="theme-btn-dark">
+                    🌙 Dark
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. QURAN TYPOGRAPHY -->
+          <div class="settings-card">
+            <div class="settings-card-header">
+              <span class="settings-card-icon">📖</span>
+              <div>
+                <h2 class="settings-card-title">Quran Typography & Text</h2>
+                <p class="settings-card-subtitle">Customize script size and translation visibility</p>
+              </div>
+            </div>
+            <div class="settings-card-body">
+              <div class="settings-option-row">
+                <div class="option-info">
+                  <span class="option-label">Arabic Font Size</span>
+                  <span class="option-desc">Adjust size of Uthmani Quranic text</span>
+                </div>
+                <div class="font-size-choice-group" id="arabic-size-group">
+                  <button type="button" class="font-choice-btn" data-size="24">Regular</button>
+                  <button type="button" class="font-choice-btn active" data-size="28">Medium</button>
+                  <button type="button" class="font-choice-btn" data-size="34">Large</button>
+                </div>
+              </div>
+
+              <div class="settings-option-row">
+                <div class="option-info">
+                  <span class="option-label">Urdu Translation (Fateh M. Jalandhry)</span>
+                  <span class="option-desc">Show verified Urdu translation beneath each Ayah</span>
+                </div>
+                <label class="toggle-switch">
+                  <input type="checkbox" id="toggle-urdu-translation" checked />
+                  <span class="slider"></span>
+                </label>
+              </div>
+
+              <!-- Preview Sample -->
+              <div class="typography-preview-box">
+                <span class="preview-label">Live Preview:</span>
+                <div class="preview-arabic" id="preview-arabic-text" dir="rtl" lang="ar">
+                  بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+                </div>
+                <div class="preview-urdu" id="preview-urdu-text" dir="rtl" lang="ur">
+                  شروع اللہ کا نام لے کر جو بڑا مہربان نہایت رحم والا ہے
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. AUDIO & RECITATION -->
+          <div class="settings-card">
+            <div class="settings-card-header">
+              <span class="settings-card-icon">🎙️</span>
+              <div>
+                <h2 class="settings-card-title">Audio & Reciter Preferences</h2>
+                <p class="settings-card-subtitle">Choose your default Qari and playback options</p>
+              </div>
+            </div>
+            <div class="settings-card-body">
+              <div class="settings-option-row">
+                <div class="option-info">
+                  <span class="option-label">Default Reciter</span>
+                  <span class="option-desc">Ayah-by-Ayah recitation delivered via EveryAyah CDN</span>
+                </div>
+                <div class="select-wrapper">
+                  <select id="select-default-reciter" class="form-select form-select-sm">
+                    <option value="Alafasy_128kbps" selected>Mishary Rashid Alafasy (مشاري العفاسي)</option>
+                    <option value="Abdul_Basit_Murattal_192kbps">AbdulBaset AbdulSamad (عبد الباسط)</option>
+                    <option value="Husary_128kbps">Mahmoud Khalil Al-Husary (محمود الحصري)</option>
+                    <option value="Abu_Bakr_Ash-Shaatree_128kbps">Abu Bakr Al-Shatri (أبو بكر الشاطري)</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="settings-option-row">
+                <div class="option-info">
+                  <span class="option-label">Listen & Follow (Auto-Scroll)</span>
+                  <span class="option-desc">Automatically scroll and highlight the currently playing Ayah</span>
+                </div>
+                <label class="toggle-switch">
+                  <input type="checkbox" id="toggle-autoscroll" checked />
+                  <span class="slider"></span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. DATA & PRIVACY MANAGEMENT -->
+          <div class="settings-card">
+            <div class="settings-card-header">
+              <span class="settings-card-icon">🛡️</span>
+              <div>
+                <h2 class="settings-card-title">Data & Privacy Controls</h2>
+                <p class="settings-card-subtitle">Manage locally stored data, progress, and reflections</p>
+              </div>
+            </div>
+            <div class="settings-card-body">
+              <div class="settings-option-row">
+                <div class="option-info">
+                  <span class="option-label">Export All Personal Data</span>
+                  <span class="option-desc">Download a backup of your bookmarks, reading progress, and journal reflections</span>
+                </div>
+                <button type="button" class="btn btn-outline btn-sm" id="btn-export-all-data">
+                  Export JSON Backup
+                </button>
+              </div>
+
+              <div class="settings-option-row">
+                <div class="option-info">
+                  <span class="option-label">Reset Daily Azkar Counters</span>
+                  <span class="option-desc">Clear today's Azkar repetitions counter back to zero</span>
+                </div>
+                <button type="button" class="btn btn-ghost btn-sm" id="btn-reset-azkar-counters">
+                  Reset Today's Azkar
+                </button>
+              </div>
+
+              <div class="settings-option-row border-danger">
+                <div class="option-info">
+                  <span class="option-label text-danger">Clear Stored Bookmarks</span>
+                  <span class="option-desc">Remove all bookmarked Ayat stored on this device</span>
+                </div>
+                <button type="button" class="btn btn-ghost btn-sm text-danger" id="btn-clear-bookmarks">
+                  Clear Bookmarks
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5. VERIFIED SOURCES & ATTRIBUTION -->
+          <div class="settings-card settings-card-full">
+            <div class="settings-card-header">
+              <span class="settings-card-icon">📜</span>
+              <div>
+                <h2 class="settings-card-title">Scholarly Attribution & Verification</h2>
+                <p class="settings-card-subtitle">Complete transparency regarding Islamic content sources</p>
+              </div>
+            </div>
+            <div class="settings-card-body">
+              <div class="sources-attribution-grid">
+                <div class="source-item">
+                  <span class="source-badge">Quran Text</span>
+                  <h4>Tanzil Project (v1.0.2)</h4>
+                  <p>Standard verified Uthmani script with full vocalization and diacritical marks.</p>
+                </div>
+                <div class="source-item">
+                  <span class="source-badge">Urdu Translation</span>
+                  <h4>Maulana Fateh Muhammad Jalandhry</h4>
+                  <p>Authentic classical Urdu translation widely accepted across Islamic scholarship.</p>
+                </div>
+                <div class="source-item">
+                  <span class="source-badge">Azkar & Duas</span>
+                  <h4>Hisn al-Muslim (Darussalam)</h4>
+                  <p>Authentic prophetic supplications referenced against Sahih al-Bukhari and Sahih Muslim.</p>
+                </div>
+                <div class="source-item">
+                  <span class="source-badge">Audio Recitation</span>
+                  <h4>EveryAyah Project</h4>
+                  <p>Ayah-by-Ayah crystal-clear recitations by renowned international Qaris.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Dynamic Site Footer -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Core Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/settings.js"></script>
+</body>
+</html>

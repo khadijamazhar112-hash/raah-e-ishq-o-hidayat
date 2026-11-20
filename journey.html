@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="My Quran Journey on Raah-e-Ishq-o-Hidayat (راہِ عشق و ہدایت). A peaceful, personal dashboard to review reading progress, saved Ayat, daily Azkar, and heartfelt reflections." />
+  <title>My Journey — Raah-e-Ishq-o-Hidayat (راہِ عشق و ہدایت)</title>
+
+  <!-- Progressive Web App (PWA) Meta & Icons -->
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#2D7A4F" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Raah-e-Ishq-o-Hidayat" />
+  <link rel="apple-touch-icon" href="assets/icons/icon-192.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Nastaliq+Urdu:wght@400;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body class="page-journey">
+  <!-- Dynamic Site Header -->
+  <div id="header-placeholder"></div>
+
+  <main class="page-main" id="main-content">
+    <!-- Journey Hero Section -->
+    <section class="journey-hero" aria-labelledby="journey-hero-title">
+      <div class="container">
+        <div class="journey-hero-inner">
+          <div class="bismillah-calligraphy" aria-hidden="true">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+          <span class="section-tag-gold">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 7.4h7.6l-6.2 4.5 2.4 7.4L12 16.8l-6.2 4.5 2.4-7.4L2 9.4h7.6z"/></svg>
+            Personal Organization & Growth
+          </span>
+          <h1 id="journey-hero-title" class="journey-hero-title">
+            My Quran Journey
+            <span class="arabic-hero-sub">رِحْلَتِي مَعَ القُرْآنِ الكَرِيمِ</span>
+          </h1>
+          <p class="journey-hero-desc">
+            A peaceful, pressure-free sanctuary to organize your Quran reading, cherish saved verses, keep track of daily remembrance, and revisit your heartfelt reflections.
+          </p>
+
+          <!-- Mindful & Gentle Message (No guilt, no streaks) -->
+          <div class="journey-mindful-pill">
+            <span class="pill-icon">🕊️</span>
+            <span>Progress in faith is measured by sincerity, not statistics. Journey at your own pace with presence of heart.</span>
+          </div>
+
+          <!-- Quick Overview Summary Bar -->
+          <div class="journey-summary-bar">
+            <div class="summary-stat-box">
+              <span class="summary-stat-icon">📖</span>
+              <div class="summary-stat-content">
+                <span class="summary-stat-val" id="summary-last-read">Surah Al-Kahf</span>
+                <span class="summary-stat-lbl" id="summary-last-ayah">Ayah 19 • Juz 15</span>
+              </div>
+            </div>
+
+            <div class="summary-stat-divider" aria-hidden="true"></div>
+
+            <div class="summary-stat-box">
+              <span class="summary-stat-icon">⭐</span>
+              <div class="summary-stat-content">
+                <span class="summary-stat-val" id="summary-saved-count">0</span>
+                <span class="summary-stat-lbl">Bookmarked Ayat</span>
+              </div>
+            </div>
+
+            <div class="summary-stat-divider" aria-hidden="true"></div>
+
+            <div class="summary-stat-box">
+              <span class="summary-stat-icon">📿</span>
+              <div class="summary-stat-content">
+                <span class="summary-stat-val" id="summary-azkar-count">0</span>
+                <span class="summary-stat-lbl">Azkar Today</span>
+              </div>
+            </div>
+
+            <div class="summary-stat-divider" aria-hidden="true"></div>
+
+            <div class="summary-stat-box">
+              <span class="summary-stat-icon">📝</span>
+              <div class="summary-stat-content">
+                <span class="summary-stat-val" id="summary-reflections-count">0</span>
+                <span class="summary-stat-lbl">Reflections Written</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dashboard Content Sections Grid -->
+    <section class="journey-dashboard-section">
+      <div class="container">
+        <div class="dashboard-grid-layout">
+
+          <!-- 1. READING PROGRESS & CONTINUE READING (Full Width or Top Priority) -->
+          <div class="dashboard-card card-reading-progress">
+            <div class="dashboard-card-header">
+              <div class="card-header-left">
+                <span class="dashboard-card-icon">📖</span>
+                <div>
+                  <h2 class="dashboard-card-title">Quran Reading Progress</h2>
+                  <p class="dashboard-card-subtitle">Resume your reading exactly where you left off</p>
+                </div>
+              </div>
+              <div class="card-header-actions">
+                <a href="quran.html" class="btn btn-outline btn-sm">
+                  <span>Surah Catalog</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+                </a>
+              </div>
+            </div>
+
+            <div class="reading-progress-inner">
+              <div class="last-read-highlight-box">
+                <div class="last-read-meta">
+                  <span class="badge-last-read">Currently Reading</span>
+                  <h3 class="last-read-surah-title" id="dash-surah-name">Surah Al-Kahf</h3>
+                  <div class="last-read-arabic-title" id="dash-surah-arabic">سُورَةُ الكَهْفِ</div>
+                  <p class="last-read-reference" id="dash-ayah-reference">Ayah 19 of 110 • Juz 15</p>
+                </div>
+
+                <div class="last-read-visual-progress">
+                  <div class="progress-bar-wrap">
+                    <div class="progress-bar-fill" id="dash-progress-fill" style="width: 17%;"></div>
+                  </div>
+                  <div class="progress-percent-label">
+                    <span id="dash-progress-percent">17% of Surah</span>
+                    <span id="dash-last-read-time" class="time-ago-label">Last updated today</span>
+                  </div>
+                </div>
+
+                <div class="last-read-actions">
+                  <a href="quran.html?surah=18&ayah=19" id="btn-continue-reading" class="btn btn-primary btn-continue">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                    <span>Continue Reading</span>
+                  </a>
+                  <a href="journal.html?surah=18&ayah=19" id="btn-reflect-last-read" class="btn btn-outline btn-reflect">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                    <span>Reflect on this Ayah</span>
+                  </a>
+                </div>
+              </div>
+
+              <!-- 30 Juz Visual Exploration Strip -->
+              <div class="juz-tracker-container">
+                <div class="juz-tracker-header">
+                  <span class="juz-tracker-title">30 Juz Overview</span>
+                  <span class="juz-tracker-current" id="juz-current-label">Currently in Juz 15</span>
+                </div>
+                <div class="juz-mini-grid" id="juz-mini-grid" title="Select a Juz to read in Al-Quran">
+                  <!-- Populated dynamically with 30 Juz pills -->
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. SAVED AYAT (BOOKMARKS) -->
+          <div class="dashboard-card card-saved-ayat">
+            <div class="dashboard-card-header">
+              <div class="card-header-left">
+                <span class="dashboard-card-icon">⭐</span>
+                <div>
+                  <h2 class="dashboard-card-title">Saved Ayat & Bookmarks</h2>
+                  <p class="dashboard-card-subtitle" id="saved-ayat-subtitle">Your personal collection of cherished verses</p>
+                </div>
+              </div>
+              <div class="card-header-actions">
+                <span class="count-chip" id="saved-ayat-count-chip">0 saved</span>
+              </div>
+            </div>
+
+            <!-- Bookmarks List Container -->
+            <div class="saved-ayat-list" id="saved-ayat-list">
+              <!-- Populated dynamically -->
+            </div>
+
+            <!-- Empty State for Bookmarks -->
+            <div class="dashboard-empty-state" id="saved-ayat-empty" style="display: none;">
+              <span class="empty-icon">⭐</span>
+              <h4>No Bookmarks Saved Yet</h4>
+              <p>Whenever an Ayah touches your heart in the Quran reader or topic explorer, click the bookmark icon to save it here for easy review.</p>
+              <a href="quran.html" class="btn btn-outline btn-sm">Explore Al-Quran Reader</a>
+            </div>
+          </div>
+
+          <!-- 3. DAILY AZKAR PROGRESS -->
+          <div class="dashboard-card card-azkar-progress">
+            <div class="dashboard-card-header">
+              <div class="card-header-left">
+                <span class="dashboard-card-icon">📿</span>
+                <div>
+                  <h2 class="dashboard-card-title">Daily Azkar & Remembrance</h2>
+                  <p class="dashboard-card-subtitle">Overview of your daily prescribed remembrance</p>
+                </div>
+              </div>
+              <div class="card-header-actions">
+                <a href="azkar.html" class="btn btn-outline btn-sm">
+                  <span>Open Azkar</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+                </a>
+              </div>
+            </div>
+
+            <div class="azkar-dashboard-content">
+              <!-- Overall Azkar Bar -->
+              <div class="azkar-overall-box">
+                <div class="overall-progress-header">
+                  <span class="overall-label">Today's Remembrance Progress</span>
+                  <span class="overall-val" id="azkar-overall-percent">0%</span>
+                </div>
+                <div class="progress-bar-wrap">
+                  <div class="progress-bar-fill fill-gold" id="azkar-overall-fill" style="width: 0%;"></div>
+                </div>
+                <div class="azkar-completed-count" id="azkar-completed-sub">0 of 21 Azkar completed today</div>
+              </div>
+
+              <!-- Categories Breakdown Grid -->
+              <div class="azkar-categories-breakdown">
+                <!-- Morning -->
+                <a href="azkar.html?cat=morning" class="azkar-category-card">
+                  <div class="azkar-cat-icon">🌅</div>
+                  <div class="azkar-cat-info">
+                    <span class="azkar-cat-title">Morning Azkar</span>
+                    <div class="cat-bar-wrap">
+                      <div class="cat-bar-fill" id="azkar-cat-morning-fill" style="width: 0%;"></div>
+                    </div>
+                  </div>
+                  <span class="azkar-cat-status" id="azkar-cat-morning-status">0/5</span>
+                </a>
+
+                <!-- Evening -->
+                <a href="azkar.html?cat=evening" class="azkar-category-card">
+                  <div class="azkar-cat-icon">🌆</div>
+                  <div class="azkar-cat-info">
+                    <span class="azkar-cat-title">Evening Azkar</span>
+                    <div class="cat-bar-wrap">
+                      <div class="cat-bar-fill" id="azkar-cat-evening-fill" style="width: 0%;"></div>
+                    </div>
+                  </div>
+                  <span class="azkar-cat-status" id="azkar-cat-evening-status">0/5</span>
+                </a>
+
+                <!-- After Salah -->
+                <a href="azkar.html?cat=prayer" class="azkar-category-card">
+                  <div class="azkar-cat-icon">🕌</div>
+                  <div class="azkar-cat-info">
+                    <span class="azkar-cat-title">After Salah</span>
+                    <div class="cat-bar-wrap">
+                      <div class="cat-bar-fill" id="azkar-cat-prayer-fill" style="width: 0%;"></div>
+                    </div>
+                  </div>
+                  <span class="azkar-cat-status" id="azkar-cat-prayer-status">0/5</span>
+                </a>
+
+                <!-- Before Sleep -->
+                <a href="azkar.html?cat=sleep" class="azkar-category-card">
+                  <div class="azkar-cat-icon">🌙</div>
+                  <div class="azkar-cat-info">
+                    <span class="azkar-cat-title">Before Sleep</span>
+                    <div class="cat-bar-wrap">
+                      <div class="cat-bar-fill" id="azkar-cat-sleep-fill" style="width: 0%;"></div>
+                    </div>
+                  </div>
+                  <span class="azkar-cat-status" id="azkar-cat-sleep-status">0/3</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. PERSONAL REFLECTIONS -->
+          <div class="dashboard-card card-reflections">
+            <div class="dashboard-card-header">
+              <div class="card-header-left">
+                <span class="dashboard-card-icon">✍️</span>
+                <div>
+                  <h2 class="dashboard-card-title">Recent Quran Reflections</h2>
+                  <p class="dashboard-card-subtitle">Heartfelt insights and life lessons from your journal</p>
+                </div>
+              </div>
+              <div class="card-header-actions">
+                <a href="journal.html" class="btn btn-outline btn-sm">
+                  <span>Write Reflection</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                </a>
+              </div>
+            </div>
+
+            <!-- Reflections Feed List -->
+            <div class="dashboard-reflections-list" id="dashboard-reflections-list">
+              <!-- Populated dynamically -->
+            </div>
+
+            <!-- Empty State for Reflections -->
+            <div class="dashboard-empty-state" id="dashboard-reflections-empty" style="display: none;">
+              <span class="empty-icon">📝</span>
+              <h4>Your Reflection Journal is Empty</h4>
+              <p>Writing down personal reflections anchors divine wisdom in your memory and character.</p>
+              <a href="journal.html" class="btn btn-primary btn-sm">Write Your First Reflection</a>
+            </div>
+          </div>
+
+          <!-- 5. PERSONAL RECENT ACTIVITY TIMELINE -->
+          <div class="dashboard-card card-activity-timeline">
+            <div class="dashboard-card-header">
+              <div class="card-header-left">
+                <span class="dashboard-card-icon">⚡</span>
+                <div>
+                  <h2 class="dashboard-card-title">Personal Activity Timeline</h2>
+                  <p class="dashboard-card-subtitle">Your recent touchpoints with Quran, Azkar, and reflection</p>
+                </div>
+              </div>
+              <div class="card-header-actions">
+                <button type="button" class="btn-export-timeline" id="btn-export-journey-summary" title="Download text summary of your learning journey">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                  <span>Export Summary</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="activity-timeline-feed" id="activity-timeline-feed">
+              <!-- Populated dynamically -->
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- VIEW BOOKMARKED AYAH MODAL -->
+  <div class="journey-modal-backdrop" id="journey-bookmark-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-bm-title">
+    <div class="journey-modal-dialog">
+      <div class="journey-modal-header">
+        <div>
+          <span class="modal-surah-tag" id="modal-bm-tag">Surah Ar-Ra'd (13:28)</span>
+          <h3 class="journey-modal-title" id="modal-bm-title">Bookmarked Ayah</h3>
+        </div>
+        <button type="button" class="journey-modal-close" id="modal-bm-close" aria-label="Close modal">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <div class="journey-modal-body">
+        <div class="modal-ayah-arabic" id="modal-bm-arabic" dir="rtl" lang="ar">
+          الَّذِينَ آمَنُوا وَتَطْمَئِنُّ قُلُوبُهُم بِذِكْرِ اللَّهِ
+        </div>
+        <div class="modal-ayah-translation" id="modal-bm-translation" dir="rtl" lang="ur">
+          جو لوگ ایمان لائے اور ان کے دل اللہ کی یاد سے اطمینان پاتے ہیں
+        </div>
+      </div>
+      <div class="journey-modal-footer">
+        <button type="button" class="btn btn-ghost btn-sm text-danger" id="modal-bm-delete">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+          Remove Bookmark
+        </button>
+        <div class="modal-footer-right-actions">
+          <a href="#" id="modal-bm-reflect-link" class="btn btn-outline btn-sm">Reflect in Journal</a>
+          <a href="#" id="modal-bm-reader-link" class="btn btn-primary btn-sm">Read in Quran Reader ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dynamic Site Footer -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Core Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/journey.js"></script>
+</body>
+</html>
