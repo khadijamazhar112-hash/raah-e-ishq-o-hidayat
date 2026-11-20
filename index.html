@@ -22,8 +22,26 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Noto+Nastaliq+Urdu:wght@400;600&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="stylesheet" href="css/style.css?v=1.0.2" />
+  <link rel="stylesheet" href="css/responsive.css?v=1.0.2" />
+  <style>
+    /* Instant Toast Close Styles */
+    .toast {
+      cursor: pointer !important;
+    }
+    .toast-close {
+      cursor: pointer !important;
+      min-width: 36px !important;
+      min-height: 36px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      z-index: 100000 !important;
+      position: relative !important;
+      background: transparent !important;
+      border: none !important;
+    }
+  </style>
 </head>
 <body class="page-home">
 
@@ -668,7 +686,52 @@
   <div id="footer-placeholder"></div>
 
   <!-- Shared main application logic -->
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=1.0.2"></script>
+
+  <!-- Global Instant Toast Dismissal & Cache-Safe Handler -->
+  <script>
+    (function() {
+      // Instant tap / click removal for any toast
+      function dismissToast(target) {
+        var toast = target.closest ? target.closest('.toast') : null;
+        if (toast && toast.parentNode) {
+          toast.style.opacity = '0';
+          toast.style.transition = 'opacity 0.15s ease';
+          setTimeout(function() {
+            if (toast.parentNode) toast.parentNode.removeChild(toast);
+          }, 150);
+        }
+      }
+
+      document.addEventListener('click', function(e) {
+        if (e.target.closest && e.target.closest('.toast')) {
+          e.stopPropagation();
+          dismissToast(e.target);
+        }
+      }, true);
+
+      document.addEventListener('touchend', function(e) {
+        if (e.target.closest && e.target.closest('.toast')) {
+          e.stopPropagation();
+          dismissToast(e.target);
+        }
+      }, true);
+
+      // Auto-cleanup timer so no toast ever stays stuck
+      setInterval(function() {
+        var toasts = document.querySelectorAll('.toast');
+        var now = Date.now();
+        for (var i = 0; i < toasts.length; i++) {
+          var t = toasts[i];
+          if (!t.__born) {
+            t.__born = now;
+          } else if (now - t.__born > 2500) {
+            dismissToast(t);
+          }
+        }
+      }, 400);
+    })();
+  </script>
 
   <!-- Homepage Interactive Interactions -->
   <script>

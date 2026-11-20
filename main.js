@@ -427,32 +427,30 @@ window.NoorToast = (() => {
       const dismiss = () => {
         if (dismissed) return;
         dismissed = true;
-        toast.classList.add('toast-dismissing');
-        toast.style.transition = 'opacity 0.25s ease, transform 0.25s ease';
+        toast.style.pointerEvents = 'none';
+        toast.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
         toast.style.opacity = '0';
         toast.style.transform = 'translateY(8px) scale(0.96)';
-        toast.style.pointerEvents = 'none';
-
-        // Guaranteed cleanup timeout
         setTimeout(() => {
-          if (toast.parentNode) {
-            toast.remove();
+          if (toast && toast.parentNode) {
+            toast.parentNode.removeChild(toast);
           }
-        }, 260);
+        }, 220);
       };
+
+      // Tap or click on toast or close button dismisses it immediately
+      toast.addEventListener('click', (e) => {
+        e.stopPropagation();
+        dismiss();
+      });
 
       const closeBtn = toast.querySelector('.toast-close');
       if (closeBtn) {
-        closeBtn.addEventListener('click', (e) => {
+        closeBtn.onclick = (e) => {
           e.stopPropagation();
           e.preventDefault();
           dismiss();
-        });
-        closeBtn.addEventListener('touchend', (e) => {
-          e.stopPropagation();
-          e.preventDefault();
-          dismiss();
-        });
+        };
       }
 
       c.appendChild(toast);
@@ -468,6 +466,22 @@ window.NoorToast = (() => {
     },
   };
 })();
+
+// Global failsafe click listener to dismiss any stuck toast anywhere
+if (typeof window !== 'undefined') {
+  window.addEventListener('click', (e) => {
+    const t = e.target.closest('.toast');
+    if (t) {
+      t.remove();
+    }
+  }, true);
+  window.addEventListener('touchend', (e) => {
+    const t = e.target.closest('.toast');
+    if (t) {
+      t.remove();
+    }
+  }, true);
+}
 
 /* ============================================================
    SECTION 7 — MODAL SYSTEM
