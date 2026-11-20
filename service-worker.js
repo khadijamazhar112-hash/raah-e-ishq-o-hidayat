@@ -1,13 +1,13 @@
 /**
  * Raah-e-Ishq-o-Hidayat (راہِ عشق و ہدایت) — Service Worker
- * Version: 1.0.0
+ * Version: 1.0.1
  * Provides offline support, static asset caching, and resilient network fallback.
  * Strictly avoids caching private auth, sensitive journal data, or unverified content.
  */
 
 'use strict';
 
-const CACHE_NAME = 'raah-e-ishq-v1.0.0';
+const CACHE_NAME = 'raah-e-ishq-v1.0.1';
 
 const PRECACHE_ASSETS = [
   './',
