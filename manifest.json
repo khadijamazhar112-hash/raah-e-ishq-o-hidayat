@@ -1,10 +1,10 @@
 {
-  "id": "/",
+  "id": "raah-e-ishq-pwa",
   "name": "Raah-e-Ishq-o-Hidayat",
   "short_name": "Raah-e-Ishq-o-Hidayat",
   "description": "Where Every Heart Finds Guidance — Premium Quran and Islamic Learning Platform",
-  "start_url": "/",
-  "scope": "/",
+  "start_url": "index.html",
+  "scope": "./",
   "display": "standalone",
   "orientation": "any",
   "theme_color": "#2D7A4F",

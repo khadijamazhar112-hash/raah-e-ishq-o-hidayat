@@ -132,6 +132,34 @@
     height: 60px;
   }
 
+  /* Mobile Header Overlap Fix */
+  .prayer-greeting,
+  .hijri-date-header {
+    display: none !important;
+  }
+
+  .hero-scroll {
+    display: none !important;
+  }
+
+  .header-actions {
+    gap: 0.35rem;
+  }
+
+  .header-actions .auth-buttons,
+  .header-actions #auth-buttons {
+    display: none !important;
+  }
+
+  .logo-text .logo-name-en {
+    font-size: 0.92rem;
+    white-space: nowrap;
+  }
+
+  .logo-text .logo-name-ar {
+    display: none !important;
+  }
+
   /* Logo — hide subtitle on small screens */
   .logo-subtitle,
   .header-logo .logo-subtitle {

@@ -1274,6 +1274,9 @@ function injectBaseStyles() {
                        line-height: 1.2; color: var(--text-secondary, #6b7280); }
     .greeting-sub   { font-family: var(--font-arabic, serif); font-size: .85rem; color: var(--primary, #2d6a4f); }
     .hijri-date-header { font-size: .72rem; color: var(--text-secondary, #6b7280); white-space: nowrap; }
+    @media (max-width: 900px) {
+      .prayer-greeting, .hijri-date-header, .hero-scroll { display: none !important; }
+    }
     .user-menu      { display: flex; align-items: center; gap: .5rem; }
     .user-greeting  { font-size: .85rem; font-weight: 500; }
     .footer-hijri   { font-size: .8rem; margin-top: .5rem; color: var(--text-secondary, #9ca3af); }
